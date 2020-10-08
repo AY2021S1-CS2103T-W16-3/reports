@@ -1,0 +1,1689 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="../style.css">
+</head>
+<body>
+
+
+<h1>IncomeList.java</h1>
+
+<table class="src">
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@77fdbe42_1'/>
+1
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@77fdbe42_1'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>package ay2021s1_cs2103_w16_3.finesse.model.transaction;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@77fdbe42_2'/>
+2
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@77fdbe42_2'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@77fdbe42_3'/>
+3
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@77fdbe42_3'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import static ay2021s1_cs2103_w16_3.finesse.commons.util.CollectionUtil.requireAllNonNull;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@77fdbe42_4'/>
+4
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@77fdbe42_4'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import static java.util.Objects.requireNonNull;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@77fdbe42_5'/>
+5
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@77fdbe42_5'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@77fdbe42_6'/>
+6
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@77fdbe42_6'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.util.Iterator;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@77fdbe42_7'/>
+7
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@77fdbe42_7'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.util.List;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@77fdbe42_8'/>
+8
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@77fdbe42_8'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@77fdbe42_9'/>
+9
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@77fdbe42_9'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import ay2021s1_cs2103_w16_3.finesse.model.transaction.exceptions.TransactionNotFoundException;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@77fdbe42_10'/>
+10
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@77fdbe42_10'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import javafx.collections.FXCollections;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@77fdbe42_11'/>
+11
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@77fdbe42_11'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import javafx.collections.ObservableList;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@77fdbe42_12'/>
+12
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@77fdbe42_12'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@77fdbe42_13'/>
+13
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@77fdbe42_13'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>/**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@77fdbe42_14'/>
+14
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@77fdbe42_14'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * A list of incomes that does not allow nulls.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@77fdbe42_15'/>
+15
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@77fdbe42_15'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * The removal of an income uses Income#equals(Object) so as to ensure that the income with exactly the</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@77fdbe42_16'/>
+16
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@77fdbe42_16'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * same fields will be removed.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@77fdbe42_17'/>
+17
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@77fdbe42_17'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> *</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@77fdbe42_18'/>
+18
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@77fdbe42_18'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * Supports a minimal set of list operations.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@77fdbe42_19'/>
+19
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@77fdbe42_19'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> */</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@77fdbe42_20'/>
+20
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@77fdbe42_20'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>public class IncomeList implements Iterable&#60;Income&#62; {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@77fdbe42_21'/>
+21
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@77fdbe42_21'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@77fdbe42_22'/>
+22
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@77fdbe42_22'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    private final ObservableList&#60;Income&#62; internalList = FXCollections.observableArrayList();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@77fdbe42_23'/>
+23
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@77fdbe42_23'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    private final ObservableList&#60;Income&#62; internalUnmodifiableList =</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@77fdbe42_24'/>
+24
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@77fdbe42_24'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            FXCollections.unmodifiableObservableList(internalList);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@77fdbe42_25'/>
+25
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@77fdbe42_25'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@77fdbe42_26'/>
+26
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@77fdbe42_26'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@77fdbe42_27'/>
+27
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@77fdbe42_27'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * Adds a income to the list.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@77fdbe42_28'/>
+28
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@77fdbe42_28'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@77fdbe42_29'/>
+29
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@77fdbe42_29'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public void add(Income toAdd) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@77fdbe42_30'/>
+30
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@77fdbe42_30'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        requireNonNull(toAdd);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@77fdbe42_31'/>
+31
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@77fdbe42_31'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        internalList.add(toAdd);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@77fdbe42_32'/>
+32
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@77fdbe42_32'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@77fdbe42_33'/>
+33
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@77fdbe42_33'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@77fdbe42_34'/>
+34
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@77fdbe42_34'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@77fdbe42_35'/>
+35
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@77fdbe42_35'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * Replaces the income {@code target} in the list with {@code editedIncome}.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@77fdbe42_36'/>
+36
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@77fdbe42_36'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * {@code target} must exist in the list.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@77fdbe42_37'/>
+37
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@77fdbe42_37'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * The income identity of {@code editedIncome} must not be the same as another existing income in</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@77fdbe42_38'/>
+38
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@77fdbe42_38'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * the list.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@77fdbe42_39'/>
+39
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@77fdbe42_39'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@77fdbe42_40'/>
+40
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@77fdbe42_40'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public void setIncome(Income target, Income editedIncome) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@77fdbe42_41'/>
+41
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@77fdbe42_41'>1</a>
+<span>
+
+1. setIncome : removed call to ay2021s1_cs2103_w16_3/finesse/commons/util/CollectionUtil::requireAllNonNull &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        requireAllNonNull(target, editedIncome);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@77fdbe42_42'/>
+42
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@77fdbe42_42'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@77fdbe42_43'/>
+43
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@77fdbe42_43'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        int index = internalList.indexOf(target);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@77fdbe42_44'/>
+44
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@77fdbe42_44'>1</a>
+<span>
+
+1. setIncome : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        if (index == -1) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@77fdbe42_45'/>
+45
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@77fdbe42_45'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            throw new TransactionNotFoundException();</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@77fdbe42_46'/>
+46
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@77fdbe42_46'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@77fdbe42_47'/>
+47
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@77fdbe42_47'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@77fdbe42_48'/>
+48
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@77fdbe42_48'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        internalList.set(index, editedIncome);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@77fdbe42_49'/>
+49
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@77fdbe42_49'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@77fdbe42_50'/>
+50
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@77fdbe42_50'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@77fdbe42_51'/>
+51
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@77fdbe42_51'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@77fdbe42_52'/>
+52
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@77fdbe42_52'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * Removes the equivalent income from the list.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@77fdbe42_53'/>
+53
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@77fdbe42_53'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * The income must exist in the list.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@77fdbe42_54'/>
+54
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@77fdbe42_54'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@77fdbe42_55'/>
+55
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@77fdbe42_55'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public void remove(Income toRemove) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@77fdbe42_56'/>
+56
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@77fdbe42_56'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        requireNonNull(toRemove);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@77fdbe42_57'/>
+57
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@77fdbe42_57'>1</a>
+<span>
+
+1. remove : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        if (!internalList.remove(toRemove)) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@77fdbe42_58'/>
+58
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@77fdbe42_58'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            throw new TransactionNotFoundException();</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@77fdbe42_59'/>
+59
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@77fdbe42_59'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@77fdbe42_60'/>
+60
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@77fdbe42_60'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@77fdbe42_61'/>
+61
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@77fdbe42_61'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@77fdbe42_62'/>
+62
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@77fdbe42_62'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public void setIncomes(IncomeList replacement) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@77fdbe42_63'/>
+63
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@77fdbe42_63'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        requireNonNull(replacement);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@77fdbe42_64'/>
+64
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@77fdbe42_64'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        internalList.setAll(replacement.internalList);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@77fdbe42_65'/>
+65
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@77fdbe42_65'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@77fdbe42_66'/>
+66
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@77fdbe42_66'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@77fdbe42_67'/>
+67
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@77fdbe42_67'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@77fdbe42_68'/>
+68
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@77fdbe42_68'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * Replaces the contents of this list with {@code incomes}.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@77fdbe42_69'/>
+69
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@77fdbe42_69'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@77fdbe42_70'/>
+70
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@77fdbe42_70'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public void setIncomes(List&#60;Income&#62; incomes) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@77fdbe42_71'/>
+71
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@77fdbe42_71'>1</a>
+<span>
+
+1. setIncomes : removed call to ay2021s1_cs2103_w16_3/finesse/commons/util/CollectionUtil::requireAllNonNull &rarr; SURVIVED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        requireAllNonNull(incomes);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@77fdbe42_72'/>
+72
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@77fdbe42_72'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@77fdbe42_73'/>
+73
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@77fdbe42_73'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        internalList.setAll(incomes);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@77fdbe42_74'/>
+74
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@77fdbe42_74'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@77fdbe42_75'/>
+75
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@77fdbe42_75'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@77fdbe42_76'/>
+76
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@77fdbe42_76'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@77fdbe42_77'/>
+77
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@77fdbe42_77'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * Returns the backing list as an unmodifiable {@code ObservableList}.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@77fdbe42_78'/>
+78
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@77fdbe42_78'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@77fdbe42_79'/>
+79
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@77fdbe42_79'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public ObservableList&#60;Income&#62; asUnmodifiableObservableList() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@77fdbe42_80'/>
+80
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@77fdbe42_80'>1</a>
+<span>
+
+1. asUnmodifiableObservableList : replaced return value with null for ay2021s1_cs2103_w16_3/finesse/model/transaction/IncomeList::asUnmodifiableObservableList &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return internalUnmodifiableList;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@77fdbe42_81'/>
+81
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@77fdbe42_81'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@77fdbe42_82'/>
+82
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@77fdbe42_82'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@77fdbe42_83'/>
+83
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@77fdbe42_83'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Override</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@77fdbe42_84'/>
+84
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@77fdbe42_84'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public Iterator&#60;Income&#62; iterator() {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@77fdbe42_85'/>
+85
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@77fdbe42_85'>1</a>
+<span>
+
+1. iterator : replaced return value with null for ay2021s1_cs2103_w16_3/finesse/model/transaction/IncomeList::iterator &rarr; NO_COVERAGE<br/>
+
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>        return internalList.iterator();</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@77fdbe42_86'/>
+86
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@77fdbe42_86'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@77fdbe42_87'/>
+87
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@77fdbe42_87'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@77fdbe42_88'/>
+88
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@77fdbe42_88'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Override</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@77fdbe42_89'/>
+89
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@77fdbe42_89'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public boolean equals(Object other) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@77fdbe42_90'/>
+90
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@77fdbe42_90'>3</a>
+<span>
+
+1. equals : replaced boolean return with true for ay2021s1_cs2103_w16_3/finesse/model/transaction/IncomeList::equals &rarr; SURVIVED<br/>
+
+2. equals : negated conditional &rarr; SURVIVED<br/>
+
+3. equals : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        return other == this // short circuit if same object</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@77fdbe42_91'/>
+91
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@77fdbe42_91'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                || (other instanceof IncomeList // instanceof handles nulls</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@77fdbe42_92'/>
+92
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@77fdbe42_92'>1</a>
+<span>
+
+1. equals : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                &#38;&#38; internalList.equals(((IncomeList) other).internalList));</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@77fdbe42_93'/>
+93
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@77fdbe42_93'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@77fdbe42_94'/>
+94
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@77fdbe42_94'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@77fdbe42_95'/>
+95
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@77fdbe42_95'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Override</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@77fdbe42_96'/>
+96
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@77fdbe42_96'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public int hashCode() {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@77fdbe42_97'/>
+97
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@77fdbe42_97'>1</a>
+<span>
+
+1. hashCode : replaced int return with 0 for ay2021s1_cs2103_w16_3/finesse/model/transaction/IncomeList::hashCode &rarr; NO_COVERAGE<br/>
+
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>        return internalList.hashCode();</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@77fdbe42_98'/>
+98
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@77fdbe42_98'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@77fdbe42_99'/>
+99
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@77fdbe42_99'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@77fdbe42_100'/>
+100
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@77fdbe42_100'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>}</span></pre></td></tr>
+
+
+
+<tr><td></td><td></td><td><h2>Mutations</h2></td></tr>
+
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@77fdbe42_41'>41</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@77fdbe42_41'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>setIncome<br/><b>Killed by : </b>ay2021s1_cs2103_w16_3.finesse.model.transaction.IncomeListTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.model.transaction.IncomeListTest]/[method:setIncome_nullTargetIncome_throwsNullPointerException()]</span></span> removed call to ay2021s1_cs2103_w16_3/finesse/commons/util/CollectionUtil::requireAllNonNull &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@77fdbe42_44'>44</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@77fdbe42_44'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>setIncome<br/><b>Killed by : </b>ay2021s1_cs2103_w16_3.finesse.model.transaction.IncomeListTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.model.transaction.IncomeListTest]/[method:setIncome_targetIncomeNotInList_throwsTransactionNotFoundException()]</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@77fdbe42_57'>57</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@77fdbe42_57'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>remove<br/><b>Killed by : </b>ay2021s1_cs2103_w16_3.finesse.model.transaction.IncomeListTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.model.transaction.IncomeListTest]/[method:remove_incomeDoesNotExist_throwsTransactionNotFoundException()]</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@77fdbe42_71'>71</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@77fdbe42_71'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>setIncomes<br/><b>Killed by : </b>none</span></span> removed call to ay2021s1_cs2103_w16_3/finesse/commons/util/CollectionUtil::requireAllNonNull &rarr; SURVIVED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@77fdbe42_80'>80</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@77fdbe42_80'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>asUnmodifiableObservableList<br/><b>Killed by : </b>ay2021s1_cs2103_w16_3.finesse.model.transaction.IncomeListTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.model.transaction.IncomeListTest]/[method:asUnmodifiableObservableList_modifyList_throwsUnsupportedOperationException()]</span></span> replaced return value with null for ay2021s1_cs2103_w16_3/finesse/model/transaction/IncomeList::asUnmodifiableObservableList &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@77fdbe42_85'>85</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@77fdbe42_85'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>iterator<br/><b>Killed by : </b>none</span></span> replaced return value with null for ay2021s1_cs2103_w16_3/finesse/model/transaction/IncomeList::iterator &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@77fdbe42_90'>90</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@77fdbe42_90'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>none</span></span> replaced boolean return with true for ay2021s1_cs2103_w16_3/finesse/model/transaction/IncomeList::equals &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; SURVIVED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>ay2021s1_cs2103_w16_3.finesse.model.transaction.IncomeListTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.model.transaction.IncomeListTest]/[method:remove_existingIncome_removesIncome()]</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@77fdbe42_92'>92</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@77fdbe42_92'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>ay2021s1_cs2103_w16_3.finesse.model.transaction.IncomeListTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.model.transaction.IncomeListTest]/[method:remove_existingIncome_removesIncome()]</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@77fdbe42_97'>97</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@77fdbe42_97'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b>none</span></span> replaced int return with 0 for ay2021s1_cs2103_w16_3/finesse/model/transaction/IncomeList::hashCode &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+
+</table>
+
+
+<h2>Active mutators</h2>
+<ul>
+
+<li class='mutator'>BOOLEAN_FALSE_RETURN</li>
+
+<li class='mutator'>BOOLEAN_TRUE_RETURN</li>
+
+<li class='mutator'>CONDITIONALS_BOUNDARY_MUTATOR</li>
+
+<li class='mutator'>EMPTY_RETURN_VALUES</li>
+
+<li class='mutator'>INCREMENTS_MUTATOR</li>
+
+<li class='mutator'>INVERT_NEGS_MUTATOR</li>
+
+<li class='mutator'>MATH_MUTATOR</li>
+
+<li class='mutator'>NEGATE_CONDITIONALS_MUTATOR</li>
+
+<li class='mutator'>NULL_RETURN_VALUES</li>
+
+<li class='mutator'>PRIMITIVE_RETURN_VALS_MUTATOR</li>
+
+<li class='mutator'>VOID_METHOD_CALL_MUTATOR</li>
+
+</ul>
+
+<h2>Tests examined</h2>
+<ul>
+<li>ay2021s1_cs2103_w16_3.finesse.model.ModelManagerTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.model.ModelManagerTest]/[method:setUserPrefs_nullUserPrefs_throwsNullPointerException()] (1 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.logic.commands.ListIncomeCommandTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.logic.commands.ListIncomeCommandTest]/[method:execute_hasSomeIncome()] (2 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.logic.commands.DeleteCommandTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.logic.commands.DeleteCommandTest]/[method:equals()] (3 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.model.ModelManagerTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.model.ModelManagerTest]/[method:setUserPrefs_validUserPrefs_copiesUserPrefs()] (2 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.logic.commands.EditCommandTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.logic.commands.EditCommandTest]/[method:execute_allFieldsSpecifiedUnfilteredList_success()] (2 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.model.FinanceTrackerTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.model.FinanceTrackerTest]/[method:resetData_withValidReadOnlyFinanceTracker_replacesData()] (1 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.logic.commands.EditCommandTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.logic.commands.EditCommandTest]/[method:equals()] (2 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.logic.commands.DeleteCommandTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.logic.commands.DeleteCommandTest]/[method:execute_validIndexUnfilteredList_success()] (2 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.storage.StorageManagerTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.storage.StorageManagerTest]/[method:financeTrackerReadSave()] (5 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.model.ModelManagerTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.model.ModelManagerTest]/[method:setGuiSettings_nullGuiSettings_throwsNullPointerException()] (1 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.storage.JsonFinanceTrackerStorageTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.storage.JsonFinanceTrackerStorageTest]/[method:readAndSaveFinanceTracker_allInOrder_success()] (9 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.logic.commands.ListIncomeCommandTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.logic.commands.ListIncomeCommandTest]/[method:execute_hasSomeNonIncome()] (3 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.logic.commands.ClearCommandTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.logic.commands.ClearCommandTest]/[method:execute_nonEmptyFinanceTracker_success()] (4 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.model.FinanceTrackerTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.model.FinanceTrackerTest]/[method:getIncomeList_modifyList_throwsUnsupportedOperationException()] (1 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.model.ModelManagerTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.model.ModelManagerTest]/[method:setFinanceTrackerFilePath_validPath_setsFinanceTrackerFilePath()] (1 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.logic.commands.ListIncomeCommandTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.logic.commands.ListIncomeCommandTest]/[method:execute_showsIncomeOnly()] (2 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.model.ModelManagerTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.model.ModelManagerTest]/[method:getFilteredTransactionList_modifyList_throwsUnsupportedOperationException()] (2 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.model.ModelManagerTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.model.ModelManagerTest]/[method:setGuiSettings_validGuiSettings_setsGuiSettings()] (2 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.model.transaction.IncomeListTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.model.transaction.IncomeListTest]/[method:setIncomes_nullList_throwsNullPointerException()] (2 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.model.transaction.IncomeListTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.model.transaction.IncomeListTest]/[method:setIncomes_incomeList_replacesOwnListWithProvidedIncomeList()] (2 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.model.ModelManagerTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.model.ModelManagerTest]/[method:setFinanceTrackerFilePath_nullPath_throwsNullPointerException()] (1 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.logic.commands.HelpCommandTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.logic.commands.HelpCommandTest]/[method:execute_help_success()] (2 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.model.transaction.IncomeListTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.model.transaction.IncomeListTest]/[method:setIncome_targetIncomeNotInList_throwsTransactionNotFoundException()] (1 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.logic.LogicManagerTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.logic.LogicManagerTest]/[method:execute_commandExecutionError_throwsCommandException()] (7 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.logic.commands.FindCommandTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.logic.commands.FindCommandTest]/[method:execute_multipleKeywords_multipleTransactionsFound()] (3 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.logic.commands.ClearCommandTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.logic.commands.ClearCommandTest]/[method:execute_emptyFinanceTracker_success()] (3 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.logic.LogicManagerTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.logic.LogicManagerTest]/[method:execute_storageThrowsIoException_throwsCommandException()] (5 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.model.transaction.IncomeListTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.model.transaction.IncomeListTest]/[method:setIncome_editedIncomeIsSameIncome_success()] (2 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.logic.commands.EditCommandTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.logic.commands.EditCommandTest]/[method:execute_invalidTransactionIndexFilteredList_failure()] (1 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.logic.LogicManagerTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.logic.LogicManagerTest]/[method:execute_validCommand_success()] (8 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.model.transaction.IncomeListTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.model.transaction.IncomeListTest]/[method:setIncome_editedIncomeHasSameIdentity_success()] (1 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.model.ModelManagerTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.model.ModelManagerTest]/[method:equals()] (2 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.logic.commands.EditCommandTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.logic.commands.EditCommandTest]/[method:execute_filteredList_success()] (3 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.logic.LogicManagerTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.logic.LogicManagerTest]/[method:getFilteredTransactionList_modifyList_throwsUnsupportedOperationException()] (5 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.model.transaction.IncomeListTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.model.transaction.IncomeListTest]/[method:setIncomes_list_replacesOwnListWithProvidedList()] (2 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.model.ModelManagerTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.model.ModelManagerTest]/[method:constructor()] (1 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.logic.commands.EditCommandTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.logic.commands.EditCommandTest]/[method:execute_someFieldsSpecifiedUnfilteredList_success()] (1 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.AppParametersTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.AppParametersTest]/[method:parse_invalidConfigPath_success()] (5 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.model.transaction.IncomeListTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.model.transaction.IncomeListTest]/[method:setIncome_nullTargetIncome_throwsNullPointerException()] (1 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.logic.commands.DeleteCommandTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.logic.commands.DeleteCommandTest]/[method:execute_invalidIndexFilteredList_throwsCommandException()] (12 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.logic.commands.ListExpenseCommandTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.logic.commands.ListExpenseCommandTest]/[method:execute_hasSomeExpense()] (2 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.model.transaction.IncomeListTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.model.transaction.IncomeListTest]/[method:setIncome_editedIncomeHasDifferentIdentity_success()] (1 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.logic.commands.ExitCommandTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.logic.commands.ExitCommandTest]/[method:execute_exit_success()] (2 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.model.transaction.IncomeListTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.model.transaction.IncomeListTest]/[method:remove_incomeDoesNotExist_throwsTransactionNotFoundException()] (2 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.logic.commands.DeleteCommandTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.logic.commands.DeleteCommandTest]/[method:execute_invalidIndexUnfilteredList_throwsCommandException()] (5 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.model.transaction.IncomeListTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.model.transaction.IncomeListTest]/[method:remove_existingIncome_removesIncome()] (2 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.logic.LogicManagerTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.logic.LogicManagerTest]/[method:execute_invalidCommandFormat_throwsParseException()] (5 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.logic.commands.ListCommandTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.logic.commands.ListCommandTest]/[method:execute_listIsNotFiltered_showsSameList()] (2 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.logic.commands.ListCommandTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.logic.commands.ListCommandTest]/[method:execute_listIsFiltered_showsEverything()] (2 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.logic.commands.ListExpenseCommandTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.logic.commands.ListExpenseCommandTest]/[method:execute_hasSomeNonExpense()] (2 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.model.transaction.IncomeListTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.model.transaction.IncomeListTest]/[method:setIncome_nullEditedIncome_throwsNullPointerException()] (2 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.logic.commands.FindCommandTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.logic.commands.FindCommandTest]/[method:execute_zeroKeywords_noTransactionFound()] (2 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.logic.commands.DeleteCommandTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.logic.commands.DeleteCommandTest]/[method:execute_validIndexFilteredList_success()] (12 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.model.transaction.IncomeListTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.model.transaction.IncomeListTest]/[method:asUnmodifiableObservableList_modifyList_throwsUnsupportedOperationException()] (1 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.logic.commands.EditCommandTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.logic.commands.EditCommandTest]/[method:execute_invalidTransactionIndexUnfilteredList_failure()] (1 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.logic.commands.AddCommandIntegrationTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.logic.commands.AddCommandIntegrationTest]/[method:execute_newTransaction_success()] (3 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.logic.commands.ListExpenseCommandTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.logic.commands.ListExpenseCommandTest]/[method:execute_showsExpenseOnly()] (2 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.storage.JsonSerializableFinanceTrackerTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.storage.JsonSerializableFinanceTrackerTest]/[method:toModelType_typicalTransactionsFile_success()] (2 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.logic.commands.FindCommandTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.logic.commands.FindCommandTest]/[method:equals()] (2 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.logic.commands.EditCommandTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.logic.commands.EditCommandTest]/[method:execute_noFieldSpecifiedUnfilteredList_success()] (1 ms)</li>
+</ul>
+
+<br/>
+
+Report generated by <a href='http://pitest.org'>PIT</a> 1.5.2
+
+</body>
+</html>

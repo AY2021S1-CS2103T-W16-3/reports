@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="../style.css">
+</head>
+<body>
+
+
+<h1>TitleContainsKeywordsPredicate.java</h1>
+
+<table class="src">
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@646a5e76_1'/>
+1
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@646a5e76_1'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>package ay2021s1_cs2103_w16_3.finesse.model.transaction;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@646a5e76_2'/>
+2
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@646a5e76_2'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@646a5e76_3'/>
+3
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@646a5e76_3'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.util.List;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@646a5e76_4'/>
+4
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@646a5e76_4'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.util.function.Predicate;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@646a5e76_5'/>
+5
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@646a5e76_5'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@646a5e76_6'/>
+6
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@646a5e76_6'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import ay2021s1_cs2103_w16_3.finesse.commons.util.StringUtil;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@646a5e76_7'/>
+7
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@646a5e76_7'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@646a5e76_8'/>
+8
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@646a5e76_8'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>/**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@646a5e76_9'/>
+9
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@646a5e76_9'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * Tests that a {@code Transaction}&#39;s {@code Title} matches any of the keywords given.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@646a5e76_10'/>
+10
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@646a5e76_10'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@646a5e76_11'/>
+11
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@646a5e76_11'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>public class TitleContainsKeywordsPredicate implements Predicate&#60;Transaction&#62; {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@646a5e76_12'/>
+12
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@646a5e76_12'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private final List&#60;String&#62; keywords;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@646a5e76_13'/>
+13
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@646a5e76_13'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@646a5e76_14'/>
+14
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@646a5e76_14'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    public TitleContainsKeywordsPredicate(List&#60;String&#62; keywords) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@646a5e76_15'/>
+15
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@646a5e76_15'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        this.keywords = keywords;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@646a5e76_16'/>
+16
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@646a5e76_16'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@646a5e76_17'/>
+17
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@646a5e76_17'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@646a5e76_18'/>
+18
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@646a5e76_18'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Override</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@646a5e76_19'/>
+19
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@646a5e76_19'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public boolean test(Transaction transaction) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@646a5e76_20'/>
+20
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@646a5e76_20'>2</a>
+<span>
+
+1. test : replaced boolean return with false for ay2021s1_cs2103_w16_3/finesse/model/transaction/TitleContainsKeywordsPredicate::test &rarr; KILLED<br/>
+
+2. test : replaced boolean return with true for ay2021s1_cs2103_w16_3/finesse/model/transaction/TitleContainsKeywordsPredicate::test &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return keywords.stream()</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@646a5e76_21'/>
+21
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@646a5e76_21'>2</a>
+<span>
+
+1. lambda$test$0 : replaced boolean return with false for ay2021s1_cs2103_w16_3/finesse/model/transaction/TitleContainsKeywordsPredicate::lambda$test$0 &rarr; KILLED<br/>
+
+2. lambda$test$0 : replaced boolean return with true for ay2021s1_cs2103_w16_3/finesse/model/transaction/TitleContainsKeywordsPredicate::lambda$test$0 &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                .anyMatch(keyword -&#62; StringUtil.containsWordIgnoreCase(transaction.getTitle().fullTitle, keyword));</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@646a5e76_22'/>
+22
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@646a5e76_22'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@646a5e76_23'/>
+23
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@646a5e76_23'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@646a5e76_24'/>
+24
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@646a5e76_24'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Override</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@646a5e76_25'/>
+25
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@646a5e76_25'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public boolean equals(Object other) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@646a5e76_26'/>
+26
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@646a5e76_26'>3</a>
+<span>
+
+1. equals : replaced boolean return with true for ay2021s1_cs2103_w16_3/finesse/model/transaction/TitleContainsKeywordsPredicate::equals &rarr; KILLED<br/>
+
+2. equals : negated conditional &rarr; KILLED<br/>
+
+3. equals : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return other == this // short circuit if same object</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@646a5e76_27'/>
+27
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@646a5e76_27'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                || (other instanceof TitleContainsKeywordsPredicate // instanceof handles nulls</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@646a5e76_28'/>
+28
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@646a5e76_28'>1</a>
+<span>
+
+1. equals : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                &#38;&#38; keywords.equals(((TitleContainsKeywordsPredicate) other).keywords)); // state check</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@646a5e76_29'/>
+29
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@646a5e76_29'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@646a5e76_30'/>
+30
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@646a5e76_30'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@646a5e76_31'/>
+31
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@646a5e76_31'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>}</span></pre></td></tr>
+
+
+
+<tr><td></td><td></td><td><h2>Mutations</h2></td></tr>
+
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@646a5e76_20'>20</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@646a5e76_20'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>test<br/><b>Killed by : </b>ay2021s1_cs2103_w16_3.finesse.model.transaction.TitleContainsKeywordsPredicateTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.model.transaction.TitleContainsKeywordsPredicateTest]/[method:test_titleContainsKeywords_returnsTrue()]</span></span> replaced boolean return with false for ay2021s1_cs2103_w16_3/finesse/model/transaction/TitleContainsKeywordsPredicate::test &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>test<br/><b>Killed by : </b>ay2021s1_cs2103_w16_3.finesse.model.transaction.TitleContainsKeywordsPredicateTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.model.transaction.TitleContainsKeywordsPredicateTest]/[method:test_titleDoesNotContainKeywords_returnsFalse()]</span></span> replaced boolean return with true for ay2021s1_cs2103_w16_3/finesse/model/transaction/TitleContainsKeywordsPredicate::test &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@646a5e76_21'>21</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@646a5e76_21'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>lambda$test$0<br/><b>Killed by : </b>ay2021s1_cs2103_w16_3.finesse.model.transaction.TitleContainsKeywordsPredicateTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.model.transaction.TitleContainsKeywordsPredicateTest]/[method:test_titleContainsKeywords_returnsTrue()]</span></span> replaced boolean return with false for ay2021s1_cs2103_w16_3/finesse/model/transaction/TitleContainsKeywordsPredicate::lambda$test$0 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>lambda$test$0<br/><b>Killed by : </b>ay2021s1_cs2103_w16_3.finesse.model.transaction.TitleContainsKeywordsPredicateTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.model.transaction.TitleContainsKeywordsPredicateTest]/[method:test_titleDoesNotContainKeywords_returnsFalse()]</span></span> replaced boolean return with true for ay2021s1_cs2103_w16_3/finesse/model/transaction/TitleContainsKeywordsPredicate::lambda$test$0 &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@646a5e76_26'>26</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@646a5e76_26'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>ay2021s1_cs2103_w16_3.finesse.model.transaction.TitleContainsKeywordsPredicateTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.model.transaction.TitleContainsKeywordsPredicateTest]/[method:equals()]</span></span> replaced boolean return with true for ay2021s1_cs2103_w16_3/finesse/model/transaction/TitleContainsKeywordsPredicate::equals &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>ay2021s1_cs2103_w16_3.finesse.model.transaction.TitleContainsKeywordsPredicateTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.model.transaction.TitleContainsKeywordsPredicateTest]/[method:equals()]</span></span> negated conditional &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>ay2021s1_cs2103_w16_3.finesse.model.transaction.TitleContainsKeywordsPredicateTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.model.transaction.TitleContainsKeywordsPredicateTest]/[method:equals()]</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@646a5e76_28'>28</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@646a5e76_28'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>ay2021s1_cs2103_w16_3.finesse.model.transaction.TitleContainsKeywordsPredicateTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.model.transaction.TitleContainsKeywordsPredicateTest]/[method:equals()]</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+
+</table>
+
+
+<h2>Active mutators</h2>
+<ul>
+
+<li class='mutator'>BOOLEAN_FALSE_RETURN</li>
+
+<li class='mutator'>BOOLEAN_TRUE_RETURN</li>
+
+<li class='mutator'>CONDITIONALS_BOUNDARY_MUTATOR</li>
+
+<li class='mutator'>EMPTY_RETURN_VALUES</li>
+
+<li class='mutator'>INCREMENTS_MUTATOR</li>
+
+<li class='mutator'>INVERT_NEGS_MUTATOR</li>
+
+<li class='mutator'>MATH_MUTATOR</li>
+
+<li class='mutator'>NEGATE_CONDITIONALS_MUTATOR</li>
+
+<li class='mutator'>NULL_RETURN_VALUES</li>
+
+<li class='mutator'>PRIMITIVE_RETURN_VALS_MUTATOR</li>
+
+<li class='mutator'>VOID_METHOD_CALL_MUTATOR</li>
+
+</ul>
+
+<h2>Tests examined</h2>
+<ul>
+<li>ay2021s1_cs2103_w16_3.finesse.logic.parser.FindCommandParserTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.logic.parser.FindCommandParserTest]/[method:parse_validArgs_returnsFindCommand()] (1 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.logic.commands.ListCommandTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.logic.commands.ListCommandTest]/[method:execute_listIsFiltered_showsEverything()] (2 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.model.ModelManagerTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.model.ModelManagerTest]/[method:equals()] (2 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.logic.commands.EditCommandTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.logic.commands.EditCommandTest]/[method:execute_filteredList_success()] (3 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.logic.commands.DeleteCommandTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.logic.commands.DeleteCommandTest]/[method:execute_validIndexFilteredList_success()] (12 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.logic.commands.FindCommandTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.logic.commands.FindCommandTest]/[method:execute_zeroKeywords_noTransactionFound()] (2 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.AppParametersTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.AppParametersTest]/[method:parse_invalidConfigPath_success()] (5 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.logic.commands.DeleteCommandTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.logic.commands.DeleteCommandTest]/[method:execute_invalidIndexFilteredList_throwsCommandException()] (12 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.logic.parser.FinanceTrackerParserTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.logic.parser.FinanceTrackerParserTest]/[method:parseCommand_find()] (2 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.logic.commands.FindCommandTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.logic.commands.FindCommandTest]/[method:execute_multipleKeywords_multipleTransactionsFound()] (3 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.model.transaction.TitleContainsKeywordsPredicateTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.model.transaction.TitleContainsKeywordsPredicateTest]/[method:equals()] (2 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.model.transaction.TitleContainsKeywordsPredicateTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.model.transaction.TitleContainsKeywordsPredicateTest]/[method:test_titleDoesNotContainKeywords_returnsFalse()] (1 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.model.transaction.TitleContainsKeywordsPredicateTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.model.transaction.TitleContainsKeywordsPredicateTest]/[method:test_titleContainsKeywords_returnsTrue()] (2 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.logic.commands.EditCommandTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.logic.commands.EditCommandTest]/[method:execute_invalidTransactionIndexFilteredList_failure()] (1 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.logic.commands.FindCommandTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.logic.commands.FindCommandTest]/[method:equals()] (2 ms)</li>
+</ul>
+
+<br/>
+
+Report generated by <a href='http://pitest.org'>PIT</a> 1.5.2
+
+</body>
+</html>

@@ -1,0 +1,1681 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="../style.css">
+</head>
+<body>
+
+
+<h1>FinanceTrackerParser.java</h1>
+
+<table class="src">
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4c14b1bd_1'/>
+1
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4c14b1bd_1'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>package ay2021s1_cs2103_w16_3.finesse.logic.parser;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4c14b1bd_2'/>
+2
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4c14b1bd_2'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4c14b1bd_3'/>
+3
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4c14b1bd_3'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import static ay2021s1_cs2103_w16_3.finesse.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4c14b1bd_4'/>
+4
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4c14b1bd_4'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import static ay2021s1_cs2103_w16_3.finesse.commons.core.Messages.MESSAGE_UNKNOWN_COMMAND;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4c14b1bd_5'/>
+5
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4c14b1bd_5'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4c14b1bd_6'/>
+6
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4c14b1bd_6'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.util.regex.Matcher;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4c14b1bd_7'/>
+7
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4c14b1bd_7'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.util.regex.Pattern;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4c14b1bd_8'/>
+8
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4c14b1bd_8'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4c14b1bd_9'/>
+9
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4c14b1bd_9'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import ay2021s1_cs2103_w16_3.finesse.logic.commands.AddCommand;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4c14b1bd_10'/>
+10
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4c14b1bd_10'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import ay2021s1_cs2103_w16_3.finesse.logic.commands.AddExpenseCommand;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4c14b1bd_11'/>
+11
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4c14b1bd_11'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import ay2021s1_cs2103_w16_3.finesse.logic.commands.AddIncomeCommand;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4c14b1bd_12'/>
+12
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4c14b1bd_12'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import ay2021s1_cs2103_w16_3.finesse.logic.commands.ClearCommand;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4c14b1bd_13'/>
+13
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4c14b1bd_13'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import ay2021s1_cs2103_w16_3.finesse.logic.commands.Command;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4c14b1bd_14'/>
+14
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4c14b1bd_14'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import ay2021s1_cs2103_w16_3.finesse.logic.commands.DeleteCommand;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4c14b1bd_15'/>
+15
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4c14b1bd_15'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import ay2021s1_cs2103_w16_3.finesse.logic.commands.EditCommand;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4c14b1bd_16'/>
+16
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4c14b1bd_16'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import ay2021s1_cs2103_w16_3.finesse.logic.commands.ExitCommand;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4c14b1bd_17'/>
+17
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4c14b1bd_17'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import ay2021s1_cs2103_w16_3.finesse.logic.commands.FindCommand;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4c14b1bd_18'/>
+18
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4c14b1bd_18'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import ay2021s1_cs2103_w16_3.finesse.logic.commands.HelpCommand;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4c14b1bd_19'/>
+19
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4c14b1bd_19'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import ay2021s1_cs2103_w16_3.finesse.logic.commands.ListCommand;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4c14b1bd_20'/>
+20
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4c14b1bd_20'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import ay2021s1_cs2103_w16_3.finesse.logic.commands.ListExpenseCommand;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4c14b1bd_21'/>
+21
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4c14b1bd_21'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import ay2021s1_cs2103_w16_3.finesse.logic.commands.ListIncomeCommand;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4c14b1bd_22'/>
+22
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4c14b1bd_22'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import ay2021s1_cs2103_w16_3.finesse.logic.parser.exceptions.ParseException;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4c14b1bd_23'/>
+23
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4c14b1bd_23'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4c14b1bd_24'/>
+24
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4c14b1bd_24'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>/**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4c14b1bd_25'/>
+25
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4c14b1bd_25'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * Parses user input.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4c14b1bd_26'/>
+26
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4c14b1bd_26'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> */</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4c14b1bd_27'/>
+27
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4c14b1bd_27'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>public class FinanceTrackerParser {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4c14b1bd_28'/>
+28
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4c14b1bd_28'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4c14b1bd_29'/>
+29
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4c14b1bd_29'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4c14b1bd_30'/>
+30
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4c14b1bd_30'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * Used for initial separation of command word and args.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4c14b1bd_31'/>
+31
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4c14b1bd_31'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     */</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4c14b1bd_32'/>
+32
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4c14b1bd_32'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    private static final Pattern BASIC_COMMAND_FORMAT = Pattern.compile(&#34;(?&#60;commandWord&#62;\\S+)(?&#60;arguments&#62;.*)&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4c14b1bd_33'/>
+33
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4c14b1bd_33'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4c14b1bd_34'/>
+34
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4c14b1bd_34'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4c14b1bd_35'/>
+35
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4c14b1bd_35'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * Parses user input into command for execution.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4c14b1bd_36'/>
+36
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4c14b1bd_36'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     *</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4c14b1bd_37'/>
+37
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4c14b1bd_37'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * @param userInput full user input string</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4c14b1bd_38'/>
+38
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4c14b1bd_38'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * @return the command based on the user input</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4c14b1bd_39'/>
+39
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4c14b1bd_39'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * @throws ParseException if the user input does not conform the expected format</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4c14b1bd_40'/>
+40
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4c14b1bd_40'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4c14b1bd_41'/>
+41
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4c14b1bd_41'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public Command parseCommand(String userInput) throws ParseException {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4c14b1bd_42'/>
+42
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4c14b1bd_42'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        final Matcher matcher = BASIC_COMMAND_FORMAT.matcher(userInput.trim());</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4c14b1bd_43'/>
+43
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4c14b1bd_43'>1</a>
+<span>
+
+1. parseCommand : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        if (!matcher.matches()) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4c14b1bd_44'/>
+44
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4c14b1bd_44'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, HelpCommand.MESSAGE_USAGE));</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4c14b1bd_45'/>
+45
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4c14b1bd_45'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4c14b1bd_46'/>
+46
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4c14b1bd_46'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4c14b1bd_47'/>
+47
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4c14b1bd_47'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        final String commandWord = matcher.group(&#34;commandWord&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4c14b1bd_48'/>
+48
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4c14b1bd_48'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        final String arguments = matcher.group(&#34;arguments&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4c14b1bd_49'/>
+49
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4c14b1bd_49'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        switch (commandWord) {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4c14b1bd_50'/>
+50
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4c14b1bd_50'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4c14b1bd_51'/>
+51
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4c14b1bd_51'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        case AddCommand.COMMAND_WORD:</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4c14b1bd_52'/>
+52
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4c14b1bd_52'>1</a>
+<span>
+
+1. parseCommand : replaced return value with null for ay2021s1_cs2103_w16_3/finesse/logic/parser/FinanceTrackerParser::parseCommand &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            return new AddCommandParser().parse(arguments);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4c14b1bd_53'/>
+53
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4c14b1bd_53'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4c14b1bd_54'/>
+54
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4c14b1bd_54'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        case AddExpenseCommand.COMMAND_WORD:</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4c14b1bd_55'/>
+55
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4c14b1bd_55'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        case AddExpenseCommand.COMMAND_ALIAS:</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4c14b1bd_56'/>
+56
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4c14b1bd_56'>1</a>
+<span>
+
+1. parseCommand : replaced return value with null for ay2021s1_cs2103_w16_3/finesse/logic/parser/FinanceTrackerParser::parseCommand &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            return new AddExpenseCommandParser().parse(arguments);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4c14b1bd_57'/>
+57
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4c14b1bd_57'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4c14b1bd_58'/>
+58
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4c14b1bd_58'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        case AddIncomeCommand.COMMAND_WORD:</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4c14b1bd_59'/>
+59
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4c14b1bd_59'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        case AddIncomeCommand.COMMAND_ALIAS:</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4c14b1bd_60'/>
+60
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4c14b1bd_60'>1</a>
+<span>
+
+1. parseCommand : replaced return value with null for ay2021s1_cs2103_w16_3/finesse/logic/parser/FinanceTrackerParser::parseCommand &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            return new AddIncomeCommandParser().parse(arguments);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4c14b1bd_61'/>
+61
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4c14b1bd_61'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4c14b1bd_62'/>
+62
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4c14b1bd_62'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        case EditCommand.COMMAND_WORD:</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4c14b1bd_63'/>
+63
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4c14b1bd_63'>1</a>
+<span>
+
+1. parseCommand : replaced return value with null for ay2021s1_cs2103_w16_3/finesse/logic/parser/FinanceTrackerParser::parseCommand &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            return new EditCommandParser().parse(arguments);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4c14b1bd_64'/>
+64
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4c14b1bd_64'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4c14b1bd_65'/>
+65
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4c14b1bd_65'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        case DeleteCommand.COMMAND_WORD:</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4c14b1bd_66'/>
+66
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4c14b1bd_66'>1</a>
+<span>
+
+1. parseCommand : replaced return value with null for ay2021s1_cs2103_w16_3/finesse/logic/parser/FinanceTrackerParser::parseCommand &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            return new DeleteCommandParser().parse(arguments);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4c14b1bd_67'/>
+67
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4c14b1bd_67'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4c14b1bd_68'/>
+68
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4c14b1bd_68'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        case ClearCommand.COMMAND_WORD:</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4c14b1bd_69'/>
+69
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4c14b1bd_69'>1</a>
+<span>
+
+1. parseCommand : replaced return value with null for ay2021s1_cs2103_w16_3/finesse/logic/parser/FinanceTrackerParser::parseCommand &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            return new ClearCommand();</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4c14b1bd_70'/>
+70
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4c14b1bd_70'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4c14b1bd_71'/>
+71
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4c14b1bd_71'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        case FindCommand.COMMAND_WORD:</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4c14b1bd_72'/>
+72
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4c14b1bd_72'>1</a>
+<span>
+
+1. parseCommand : replaced return value with null for ay2021s1_cs2103_w16_3/finesse/logic/parser/FinanceTrackerParser::parseCommand &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            return new FindCommandParser().parse(arguments);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4c14b1bd_73'/>
+73
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4c14b1bd_73'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4c14b1bd_74'/>
+74
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4c14b1bd_74'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        case ListCommand.COMMAND_WORD:</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4c14b1bd_75'/>
+75
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4c14b1bd_75'>1</a>
+<span>
+
+1. parseCommand : replaced return value with null for ay2021s1_cs2103_w16_3/finesse/logic/parser/FinanceTrackerParser::parseCommand &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            return new ListCommand();</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4c14b1bd_76'/>
+76
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4c14b1bd_76'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4c14b1bd_77'/>
+77
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4c14b1bd_77'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        case ListExpenseCommand.COMMAND_WORD:</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4c14b1bd_78'/>
+78
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4c14b1bd_78'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        case ListExpenseCommand.COMMAND_ALIAS:</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4c14b1bd_79'/>
+79
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4c14b1bd_79'>1</a>
+<span>
+
+1. parseCommand : replaced return value with null for ay2021s1_cs2103_w16_3/finesse/logic/parser/FinanceTrackerParser::parseCommand &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            return new ListExpenseCommand();</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4c14b1bd_80'/>
+80
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4c14b1bd_80'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4c14b1bd_81'/>
+81
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4c14b1bd_81'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        case ListIncomeCommand.COMMAND_WORD:</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4c14b1bd_82'/>
+82
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4c14b1bd_82'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        case ListIncomeCommand.COMMAND_ALIAS:</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4c14b1bd_83'/>
+83
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4c14b1bd_83'>1</a>
+<span>
+
+1. parseCommand : replaced return value with null for ay2021s1_cs2103_w16_3/finesse/logic/parser/FinanceTrackerParser::parseCommand &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            return new ListIncomeCommand();</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4c14b1bd_84'/>
+84
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4c14b1bd_84'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4c14b1bd_85'/>
+85
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4c14b1bd_85'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        case ExitCommand.COMMAND_WORD:</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4c14b1bd_86'/>
+86
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4c14b1bd_86'>1</a>
+<span>
+
+1. parseCommand : replaced return value with null for ay2021s1_cs2103_w16_3/finesse/logic/parser/FinanceTrackerParser::parseCommand &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            return new ExitCommand();</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4c14b1bd_87'/>
+87
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4c14b1bd_87'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4c14b1bd_88'/>
+88
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4c14b1bd_88'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        case HelpCommand.COMMAND_WORD:</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4c14b1bd_89'/>
+89
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4c14b1bd_89'>1</a>
+<span>
+
+1. parseCommand : replaced return value with null for ay2021s1_cs2103_w16_3/finesse/logic/parser/FinanceTrackerParser::parseCommand &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            return new HelpCommand();</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4c14b1bd_90'/>
+90
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4c14b1bd_90'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4c14b1bd_91'/>
+91
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4c14b1bd_91'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        default:</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4c14b1bd_92'/>
+92
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4c14b1bd_92'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            throw new ParseException(MESSAGE_UNKNOWN_COMMAND);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4c14b1bd_93'/>
+93
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4c14b1bd_93'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4c14b1bd_94'/>
+94
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4c14b1bd_94'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4c14b1bd_95'/>
+95
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4c14b1bd_95'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4c14b1bd_96'/>
+96
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4c14b1bd_96'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>}</span></pre></td></tr>
+
+
+
+<tr><td></td><td></td><td><h2>Mutations</h2></td></tr>
+
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4c14b1bd_43'>43</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4c14b1bd_43'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>parseCommand<br/><b>Killed by : </b>ay2021s1_cs2103_w16_3.finesse.logic.parser.FinanceTrackerParserTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.logic.parser.FinanceTrackerParserTest]/[method:parseCommand_unknownCommand_throwsParseException()]</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4c14b1bd_52'>52</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4c14b1bd_52'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>parseCommand<br/><b>Killed by : </b>ay2021s1_cs2103_w16_3.finesse.logic.parser.FinanceTrackerParserTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.logic.parser.FinanceTrackerParserTest]/[method:parseCommand_add()]</span></span> replaced return value with null for ay2021s1_cs2103_w16_3/finesse/logic/parser/FinanceTrackerParser::parseCommand &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4c14b1bd_56'>56</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4c14b1bd_56'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>parseCommand<br/><b>Killed by : </b>ay2021s1_cs2103_w16_3.finesse.logic.parser.FinanceTrackerParserTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.logic.parser.FinanceTrackerParserTest]/[method:parseCommand_addExpense()]</span></span> replaced return value with null for ay2021s1_cs2103_w16_3/finesse/logic/parser/FinanceTrackerParser::parseCommand &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4c14b1bd_60'>60</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4c14b1bd_60'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>parseCommand<br/><b>Killed by : </b>ay2021s1_cs2103_w16_3.finesse.logic.parser.FinanceTrackerParserTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.logic.parser.FinanceTrackerParserTest]/[method:parseCommand_addIncome()]</span></span> replaced return value with null for ay2021s1_cs2103_w16_3/finesse/logic/parser/FinanceTrackerParser::parseCommand &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4c14b1bd_63'>63</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4c14b1bd_63'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>parseCommand<br/><b>Killed by : </b>ay2021s1_cs2103_w16_3.finesse.logic.parser.FinanceTrackerParserTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.logic.parser.FinanceTrackerParserTest]/[method:parseCommand_edit()]</span></span> replaced return value with null for ay2021s1_cs2103_w16_3/finesse/logic/parser/FinanceTrackerParser::parseCommand &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4c14b1bd_66'>66</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4c14b1bd_66'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>parseCommand<br/><b>Killed by : </b>ay2021s1_cs2103_w16_3.finesse.logic.parser.FinanceTrackerParserTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.logic.parser.FinanceTrackerParserTest]/[method:parseCommand_delete()]</span></span> replaced return value with null for ay2021s1_cs2103_w16_3/finesse/logic/parser/FinanceTrackerParser::parseCommand &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4c14b1bd_69'>69</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4c14b1bd_69'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>parseCommand<br/><b>Killed by : </b>ay2021s1_cs2103_w16_3.finesse.logic.parser.FinanceTrackerParserTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.logic.parser.FinanceTrackerParserTest]/[method:parseCommand_clear()]</span></span> replaced return value with null for ay2021s1_cs2103_w16_3/finesse/logic/parser/FinanceTrackerParser::parseCommand &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4c14b1bd_72'>72</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4c14b1bd_72'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>parseCommand<br/><b>Killed by : </b>ay2021s1_cs2103_w16_3.finesse.logic.parser.FinanceTrackerParserTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.logic.parser.FinanceTrackerParserTest]/[method:parseCommand_find()]</span></span> replaced return value with null for ay2021s1_cs2103_w16_3/finesse/logic/parser/FinanceTrackerParser::parseCommand &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4c14b1bd_75'>75</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4c14b1bd_75'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>parseCommand<br/><b>Killed by : </b>ay2021s1_cs2103_w16_3.finesse.logic.parser.FinanceTrackerParserTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.logic.parser.FinanceTrackerParserTest]/[method:parseCommand_list()]</span></span> replaced return value with null for ay2021s1_cs2103_w16_3/finesse/logic/parser/FinanceTrackerParser::parseCommand &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4c14b1bd_79'>79</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4c14b1bd_79'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>parseCommand<br/><b>Killed by : </b>ay2021s1_cs2103_w16_3.finesse.logic.parser.FinanceTrackerParserTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.logic.parser.FinanceTrackerParserTest]/[method:parseCommand_listExpense()]</span></span> replaced return value with null for ay2021s1_cs2103_w16_3/finesse/logic/parser/FinanceTrackerParser::parseCommand &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4c14b1bd_83'>83</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4c14b1bd_83'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>parseCommand<br/><b>Killed by : </b>ay2021s1_cs2103_w16_3.finesse.logic.parser.FinanceTrackerParserTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.logic.parser.FinanceTrackerParserTest]/[method:parseCommand_listIncome()]</span></span> replaced return value with null for ay2021s1_cs2103_w16_3/finesse/logic/parser/FinanceTrackerParser::parseCommand &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4c14b1bd_86'>86</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4c14b1bd_86'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>parseCommand<br/><b>Killed by : </b>ay2021s1_cs2103_w16_3.finesse.logic.parser.FinanceTrackerParserTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.logic.parser.FinanceTrackerParserTest]/[method:parseCommand_exit()]</span></span> replaced return value with null for ay2021s1_cs2103_w16_3/finesse/logic/parser/FinanceTrackerParser::parseCommand &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4c14b1bd_89'>89</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4c14b1bd_89'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>parseCommand<br/><b>Killed by : </b>ay2021s1_cs2103_w16_3.finesse.logic.parser.FinanceTrackerParserTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.logic.parser.FinanceTrackerParserTest]/[method:parseCommand_help()]</span></span> replaced return value with null for ay2021s1_cs2103_w16_3/finesse/logic/parser/FinanceTrackerParser::parseCommand &rarr; KILLED</p> 
+</td>
+</tr>
+
+</table>
+
+
+<h2>Active mutators</h2>
+<ul>
+
+<li class='mutator'>BOOLEAN_FALSE_RETURN</li>
+
+<li class='mutator'>BOOLEAN_TRUE_RETURN</li>
+
+<li class='mutator'>CONDITIONALS_BOUNDARY_MUTATOR</li>
+
+<li class='mutator'>EMPTY_RETURN_VALUES</li>
+
+<li class='mutator'>INCREMENTS_MUTATOR</li>
+
+<li class='mutator'>INVERT_NEGS_MUTATOR</li>
+
+<li class='mutator'>MATH_MUTATOR</li>
+
+<li class='mutator'>NEGATE_CONDITIONALS_MUTATOR</li>
+
+<li class='mutator'>NULL_RETURN_VALUES</li>
+
+<li class='mutator'>PRIMITIVE_RETURN_VALS_MUTATOR</li>
+
+<li class='mutator'>VOID_METHOD_CALL_MUTATOR</li>
+
+</ul>
+
+<h2>Tests examined</h2>
+<ul>
+<li>ay2021s1_cs2103_w16_3.finesse.logic.parser.FinanceTrackerParserTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.logic.parser.FinanceTrackerParserTest]/[method:parseCommand_exit()] (2 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.logic.parser.FinanceTrackerParserTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.logic.parser.FinanceTrackerParserTest]/[method:parseCommand_listExpense()] (2 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.logic.parser.FinanceTrackerParserTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.logic.parser.FinanceTrackerParserTest]/[method:parseCommand_listIncome()] (2 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.logic.parser.FinanceTrackerParserTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.logic.parser.FinanceTrackerParserTest]/[method:parseCommand_list()] (2 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.logic.parser.FinanceTrackerParserTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.logic.parser.FinanceTrackerParserTest]/[method:parseCommand_addIncome()] (3 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.AppParametersTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.AppParametersTest]/[method:parse_invalidConfigPath_success()] (5 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.logic.parser.FinanceTrackerParserTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.logic.parser.FinanceTrackerParserTest]/[method:parseCommand_help()] (2 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.logic.parser.FinanceTrackerParserTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.logic.parser.FinanceTrackerParserTest]/[method:parseCommand_find()] (2 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.logic.LogicManagerTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.logic.LogicManagerTest]/[method:execute_commandExecutionError_throwsCommandException()] (7 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.logic.parser.FinanceTrackerParserTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.logic.parser.FinanceTrackerParserTest]/[method:parseCommand_unknownCommand_throwsParseException()] (1 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.logic.parser.FinanceTrackerParserTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.logic.parser.FinanceTrackerParserTest]/[method:parseCommand_addExpense()] (2 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.logic.parser.FinanceTrackerParserTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.logic.parser.FinanceTrackerParserTest]/[method:parseCommand_add()] (2 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.logic.LogicManagerTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.logic.LogicManagerTest]/[method:execute_storageThrowsIoException_throwsCommandException()] (5 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.logic.parser.FinanceTrackerParserTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.logic.parser.FinanceTrackerParserTest]/[method:parseCommand_delete()] (2 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.logic.parser.FinanceTrackerParserTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.logic.parser.FinanceTrackerParserTest]/[method:parseCommand_unrecognisedInput_throwsParseException()] (2 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.logic.parser.FinanceTrackerParserTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.logic.parser.FinanceTrackerParserTest]/[method:parseCommand_clear()] (2 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.logic.parser.FinanceTrackerParserTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.logic.parser.FinanceTrackerParserTest]/[method:parseCommand_edit()] (3 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.logic.LogicManagerTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.logic.LogicManagerTest]/[method:execute_validCommand_success()] (8 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.logic.LogicManagerTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.logic.LogicManagerTest]/[method:execute_invalidCommandFormat_throwsParseException()] (5 ms)</li>
+</ul>
+
+<br/>
+
+Report generated by <a href='http://pitest.org'>PIT</a> 1.5.2
+
+</body>
+</html>
