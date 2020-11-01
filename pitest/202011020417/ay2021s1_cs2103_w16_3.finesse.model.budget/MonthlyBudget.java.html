@@ -1,0 +1,3553 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="../style.css">
+</head>
+<body>
+
+
+<h1>MonthlyBudget.java</h1>
+
+<table class="src">
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5d9e0453_1'/>
+1
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_1'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>package ay2021s1_cs2103_w16_3.finesse.model.budget;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5d9e0453_2'/>
+2
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_2'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5d9e0453_3'/>
+3
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_3'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.math.BigDecimal;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5d9e0453_4'/>
+4
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_4'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.text.DateFormatSymbols;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5d9e0453_5'/>
+5
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_5'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.time.YearMonth;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5d9e0453_6'/>
+6
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_6'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.time.temporal.ChronoUnit;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5d9e0453_7'/>
+7
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_7'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.util.ArrayList;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5d9e0453_8'/>
+8
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_8'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.util.Arrays;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5d9e0453_9'/>
+9
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_9'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.util.Collection;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5d9e0453_10'/>
+10
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_10'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5d9e0453_11'/>
+11
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_11'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import ay2021s1_cs2103_w16_3.finesse.model.transaction.Amount;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5d9e0453_12'/>
+12
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_12'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import ay2021s1_cs2103_w16_3.finesse.model.transaction.Expense;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5d9e0453_13'/>
+13
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_13'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import ay2021s1_cs2103_w16_3.finesse.model.transaction.Transaction;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5d9e0453_14'/>
+14
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_14'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import ay2021s1_cs2103_w16_3.finesse.model.transaction.TransactionList;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5d9e0453_15'/>
+15
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_15'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import javafx.collections.FXCollections;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5d9e0453_16'/>
+16
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_16'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import javafx.collections.ObservableList;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5d9e0453_17'/>
+17
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_17'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5d9e0453_18'/>
+18
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_18'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>/**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5d9e0453_19'/>
+19
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_19'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * Represents the monthly budget in the finance tracker.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5d9e0453_20'/>
+20
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_20'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5d9e0453_21'/>
+21
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_21'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>public class MonthlyBudget {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5d9e0453_22'/>
+22
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_22'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    private static final String[] MONTHS = new DateFormatSymbols().getMonths();</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5d9e0453_23'/>
+23
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_23'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private static final int NUM_OF_MONTHS = 12;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5d9e0453_24'/>
+24
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_24'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5d9e0453_25'/>
+25
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_25'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private ObservableAmount monthlyExpenseLimit;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5d9e0453_26'/>
+26
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_26'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private ObservableAmount monthlySavingsGoal;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5d9e0453_27'/>
+27
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_27'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private ObservableAmount remainingBudget;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5d9e0453_28'/>
+28
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_28'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private ObservableAmount currentSavings;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5d9e0453_29'/>
+29
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_29'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private ObservableList&#60;BigDecimal&#62; monthlyExpenses;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5d9e0453_30'/>
+30
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_30'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private ObservableList&#60;BigDecimal&#62; monthlyIncomes;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5d9e0453_31'/>
+31
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_31'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private ObservableList&#60;BigDecimal&#62; monthlySavings;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5d9e0453_32'/>
+32
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_32'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private ObservableList&#60;String&#62; months;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5d9e0453_33'/>
+33
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_33'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5d9e0453_34'/>
+34
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_34'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @FunctionalInterface</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5d9e0453_35'/>
+35
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_35'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public interface ChangeListener extends Runnable {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5d9e0453_36'/>
+36
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_36'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5d9e0453_37'/>
+37
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_37'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5d9e0453_38'/>
+38
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_38'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5d9e0453_39'/>
+39
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_39'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private Collection&#60;ChangeListener&#62; listeners;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5d9e0453_40'/>
+40
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_40'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5d9e0453_41'/>
+41
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_41'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5d9e0453_42'/>
+42
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_42'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * Creates a {@code MonthlyBudget} with an expense limit and savings goal of $0.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5d9e0453_43'/>
+43
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_43'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     */</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5d9e0453_44'/>
+44
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_44'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    public MonthlyBudget() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5d9e0453_45'/>
+45
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_45'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        monthlyExpenseLimit = new ObservableAmount();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5d9e0453_46'/>
+46
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_46'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        monthlySavingsGoal = new ObservableAmount();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5d9e0453_47'/>
+47
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_47'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        remainingBudget = new ObservableAmount();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5d9e0453_48'/>
+48
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_48'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        currentSavings = new ObservableAmount();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5d9e0453_49'/>
+49
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_49'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        monthlyExpenses = FXCollections.observableArrayList();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5d9e0453_50'/>
+50
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_50'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        monthlyIncomes = FXCollections.observableArrayList();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5d9e0453_51'/>
+51
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_51'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        monthlySavings = FXCollections.observableArrayList();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5d9e0453_52'/>
+52
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_52'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        months = FXCollections.observableArrayList();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5d9e0453_53'/>
+53
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_53'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        listeners = new ArrayList&#60;&#62;();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5d9e0453_54'/>
+54
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_54'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5d9e0453_55'/>
+55
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_55'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5d9e0453_56'/>
+56
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_56'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public ObservableAmount getMonthlyExpenseLimit() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5d9e0453_57'/>
+57
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_57'>1</a>
+<span>
+
+1. getMonthlyExpenseLimit : replaced return value with null for ay2021s1_cs2103_w16_3/finesse/model/budget/MonthlyBudget::getMonthlyExpenseLimit &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return monthlyExpenseLimit;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5d9e0453_58'/>
+58
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_58'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5d9e0453_59'/>
+59
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_59'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5d9e0453_60'/>
+60
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_60'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public void setMonthlyExpenseLimit(Amount limit) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5d9e0453_61'/>
+61
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_61'>1</a>
+<span>
+
+1. setMonthlyExpenseLimit : removed call to ay2021s1_cs2103_w16_3/finesse/model/budget/ObservableAmount::setValue &rarr; SURVIVED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        monthlyExpenseLimit.setValue(limit);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5d9e0453_62'/>
+62
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_62'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5d9e0453_63'/>
+63
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_63'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5d9e0453_64'/>
+64
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_64'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public ObservableAmount getMonthlySavingsGoal() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5d9e0453_65'/>
+65
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_65'>1</a>
+<span>
+
+1. getMonthlySavingsGoal : replaced return value with null for ay2021s1_cs2103_w16_3/finesse/model/budget/MonthlyBudget::getMonthlySavingsGoal &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return monthlySavingsGoal;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5d9e0453_66'/>
+66
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_66'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5d9e0453_67'/>
+67
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_67'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5d9e0453_68'/>
+68
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_68'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public void setMonthlySavingsGoal(Amount goal) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5d9e0453_69'/>
+69
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_69'>1</a>
+<span>
+
+1. setMonthlySavingsGoal : removed call to ay2021s1_cs2103_w16_3/finesse/model/budget/ObservableAmount::setValue &rarr; SURVIVED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        monthlySavingsGoal.setValue(goal);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5d9e0453_70'/>
+70
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_70'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5d9e0453_71'/>
+71
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_71'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5d9e0453_72'/>
+72
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_72'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public ObservableAmount getRemainingBudget() {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5d9e0453_73'/>
+73
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_73'>1</a>
+<span>
+
+1. getRemainingBudget : replaced return value with null for ay2021s1_cs2103_w16_3/finesse/model/budget/MonthlyBudget::getRemainingBudget &rarr; NO_COVERAGE<br/>
+
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>        return remainingBudget;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5d9e0453_74'/>
+74
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_74'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5d9e0453_75'/>
+75
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_75'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5d9e0453_76'/>
+76
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_76'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public void setRemainingBudget(Amount budget) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5d9e0453_77'/>
+77
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_77'>1</a>
+<span>
+
+1. setRemainingBudget : removed call to ay2021s1_cs2103_w16_3/finesse/model/budget/ObservableAmount::setValue &rarr; SURVIVED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        remainingBudget.setValue(budget);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5d9e0453_78'/>
+78
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_78'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5d9e0453_79'/>
+79
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_79'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5d9e0453_80'/>
+80
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_80'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public ObservableAmount getCurrentSavings() {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5d9e0453_81'/>
+81
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_81'>1</a>
+<span>
+
+1. getCurrentSavings : replaced return value with null for ay2021s1_cs2103_w16_3/finesse/model/budget/MonthlyBudget::getCurrentSavings &rarr; NO_COVERAGE<br/>
+
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>        return currentSavings;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5d9e0453_82'/>
+82
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_82'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5d9e0453_83'/>
+83
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_83'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5d9e0453_84'/>
+84
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_84'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public void setCurrentSavings(Amount savings) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5d9e0453_85'/>
+85
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_85'>1</a>
+<span>
+
+1. setCurrentSavings : removed call to ay2021s1_cs2103_w16_3/finesse/model/budget/ObservableAmount::setValue &rarr; SURVIVED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        currentSavings.setValue(savings);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5d9e0453_86'/>
+86
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_86'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5d9e0453_87'/>
+87
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_87'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5d9e0453_88'/>
+88
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_88'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public ObservableList&#60;BigDecimal&#62; getMonthlyExpenses() {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5d9e0453_89'/>
+89
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_89'>1</a>
+<span>
+
+1. getMonthlyExpenses : replaced return value with null for ay2021s1_cs2103_w16_3/finesse/model/budget/MonthlyBudget::getMonthlyExpenses &rarr; NO_COVERAGE<br/>
+
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>        return FXCollections.unmodifiableObservableList(monthlyExpenses);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5d9e0453_90'/>
+90
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_90'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5d9e0453_91'/>
+91
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_91'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5d9e0453_92'/>
+92
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_92'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public ObservableList&#60;BigDecimal&#62; getMonthlyIncomes() {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5d9e0453_93'/>
+93
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_93'>1</a>
+<span>
+
+1. getMonthlyIncomes : replaced return value with null for ay2021s1_cs2103_w16_3/finesse/model/budget/MonthlyBudget::getMonthlyIncomes &rarr; NO_COVERAGE<br/>
+
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>        return FXCollections.unmodifiableObservableList(monthlyIncomes);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5d9e0453_94'/>
+94
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_94'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5d9e0453_95'/>
+95
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_95'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5d9e0453_96'/>
+96
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_96'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public ObservableList&#60;BigDecimal&#62; getMonthlySavings() {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5d9e0453_97'/>
+97
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_97'>1</a>
+<span>
+
+1. getMonthlySavings : replaced return value with null for ay2021s1_cs2103_w16_3/finesse/model/budget/MonthlyBudget::getMonthlySavings &rarr; NO_COVERAGE<br/>
+
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>        return FXCollections.unmodifiableObservableList(monthlySavings);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5d9e0453_98'/>
+98
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_98'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5d9e0453_99'/>
+99
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_99'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5d9e0453_100'/>
+100
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_100'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public ObservableList&#60;String&#62; getMonths() {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5d9e0453_101'/>
+101
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_101'>1</a>
+<span>
+
+1. getMonths : replaced return value with null for ay2021s1_cs2103_w16_3/finesse/model/budget/MonthlyBudget::getMonths &rarr; NO_COVERAGE<br/>
+
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>        return FXCollections.unmodifiableObservableList(months);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5d9e0453_102'/>
+102
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_102'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5d9e0453_103'/>
+103
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_103'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5d9e0453_104'/>
+104
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_104'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public void addChangeListener(ChangeListener listener) {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5d9e0453_105'/>
+105
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_105'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        listeners.add(listener);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5d9e0453_106'/>
+106
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_106'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5d9e0453_107'/>
+107
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_107'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5d9e0453_108'/>
+108
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_108'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private void callChangeListeners() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5d9e0453_109'/>
+109
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_109'>1</a>
+<span>
+
+1. callChangeListeners : removed call to java/util/Collection::forEach &rarr; SURVIVED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        listeners.forEach(ChangeListener::run);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5d9e0453_110'/>
+110
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_110'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5d9e0453_111'/>
+111
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_111'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5d9e0453_112'/>
+112
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_112'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5d9e0453_113'/>
+113
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_113'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * Calculates all information related to the user&#39;s savings.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5d9e0453_114'/>
+114
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_114'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * These are:</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5d9e0453_115'/>
+115
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_115'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * 1. Expenses for the past number of months specified by the user</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5d9e0453_116'/>
+116
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_116'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * 2. Incomes for the past number of months specified by user</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5d9e0453_117'/>
+117
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_117'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * 3. Savings for the past number of months specified by user</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5d9e0453_118'/>
+118
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_118'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * 4. The months to be displayed according to the number of months specified by user</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5d9e0453_119'/>
+119
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_119'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     *</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5d9e0453_120'/>
+120
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_120'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * @param transactions The current list of transactions.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5d9e0453_121'/>
+121
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_121'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * @param numOfMonths The number of months of data the user wishes to display.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5d9e0453_122'/>
+122
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_122'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5d9e0453_123'/>
+123
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_123'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public void calculateBudgetInfo(TransactionList transactions, int numOfMonths) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5d9e0453_124'/>
+124
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_124'>1</a>
+<span>
+
+1. calculateBudgetInfo : removed call to javafx/collections/ObservableList::clear &rarr; SURVIVED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        this.monthlyExpenses.clear();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5d9e0453_125'/>
+125
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_125'>1</a>
+<span>
+
+1. calculateBudgetInfo : removed call to javafx/collections/ObservableList::clear &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        this.monthlyIncomes.clear();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5d9e0453_126'/>
+126
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_126'>1</a>
+<span>
+
+1. calculateBudgetInfo : removed call to javafx/collections/ObservableList::clear &rarr; SURVIVED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        this.months.clear();</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5d9e0453_127'/>
+127
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_127'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5d9e0453_128'/>
+128
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_128'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        YearMonth today = YearMonth.now();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5d9e0453_129'/>
+129
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_129'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        int thisMonthValue = today.getMonthValue();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5d9e0453_130'/>
+130
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_130'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        BigDecimal[] monthlyExpenses = new BigDecimal[numOfMonths];</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5d9e0453_131'/>
+131
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_131'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        BigDecimal[] monthlyIncomes = new BigDecimal[numOfMonths];</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5d9e0453_132'/>
+132
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_132'>1</a>
+<span>
+
+1. calculateBudgetInfo : removed call to java/util/Arrays::fill &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        Arrays.fill(monthlyExpenses, BigDecimal.ZERO);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5d9e0453_133'/>
+133
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_133'>1</a>
+<span>
+
+1. calculateBudgetInfo : removed call to java/util/Arrays::fill &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        Arrays.fill(monthlyIncomes, BigDecimal.ZERO);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5d9e0453_134'/>
+134
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_134'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5d9e0453_135'/>
+135
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_135'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        for (Transaction transaction: transactions) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5d9e0453_136'/>
+136
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_136'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            int monthsBeforeToday = (int) ChronoUnit.MONTHS.between(YearMonth.from(transaction.getDateValue()), today);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5d9e0453_137'/>
+137
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_137'>2</a>
+<span>
+
+1. calculateBudgetInfo : changed conditional boundary &rarr; SURVIVED<br/>
+
+2. calculateBudgetInfo : negated conditional &rarr; SURVIVED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>            if (monthsBeforeToday &#60; numOfMonths) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5d9e0453_138'/>
+138
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_138'>1</a>
+<span>
+
+1. calculateBudgetInfo : negated conditional &rarr; SURVIVED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>                if (transaction instanceof Expense) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5d9e0453_139'/>
+139
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_139'>4</a>
+<span>
+
+1. calculateBudgetInfo : Replaced integer subtraction with addition &rarr; KILLED<br/>
+
+2. calculateBudgetInfo : Replaced integer subtraction with addition &rarr; KILLED<br/>
+
+3. calculateBudgetInfo : Replaced integer subtraction with addition &rarr; KILLED<br/>
+
+4. calculateBudgetInfo : Replaced integer subtraction with addition &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                    monthlyExpenses[numOfMonths - 1 - monthsBeforeToday] =</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5d9e0453_140'/>
+140
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_140'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                            monthlyExpenses[numOfMonths - 1 - monthsBeforeToday]</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5d9e0453_141'/>
+141
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_141'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>                                    .add(transaction.getAmount().getValue());</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5d9e0453_142'/>
+142
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_142'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                } else {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5d9e0453_143'/>
+143
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_143'>4</a>
+<span>
+
+1. calculateBudgetInfo : Replaced integer subtraction with addition &rarr; KILLED<br/>
+
+2. calculateBudgetInfo : Replaced integer subtraction with addition &rarr; KILLED<br/>
+
+3. calculateBudgetInfo : Replaced integer subtraction with addition &rarr; KILLED<br/>
+
+4. calculateBudgetInfo : Replaced integer subtraction with addition &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                    monthlyIncomes[numOfMonths - 1 - monthsBeforeToday] =</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5d9e0453_144'/>
+144
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_144'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                            monthlyIncomes[numOfMonths - 1 - monthsBeforeToday]</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5d9e0453_145'/>
+145
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_145'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>                                    .add(transaction.getAmount().getValue());</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5d9e0453_146'/>
+146
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_146'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5d9e0453_147'/>
+147
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_147'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5d9e0453_148'/>
+148
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_148'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5d9e0453_149'/>
+149
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_149'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5d9e0453_150'/>
+150
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_150'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        this.monthlyExpenses.addAll(Arrays.asList(monthlyExpenses));</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5d9e0453_151'/>
+151
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_151'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        this.monthlyIncomes.addAll(Arrays.asList(monthlyIncomes));</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5d9e0453_152'/>
+152
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_152'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5d9e0453_153'/>
+153
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_153'>3</a>
+<span>
+
+1. calculateBudgetInfo : changed conditional boundary &rarr; SURVIVED<br/>
+
+2. calculateBudgetInfo : negated conditional &rarr; SURVIVED<br/>
+
+3. calculateBudgetInfo : Changed increment from -1 to 1 &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        for (int i = numOfMonths; i &#62; 0; i--) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5d9e0453_154'/>
+154
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_154'>6</a>
+<span>
+
+1. calculateBudgetInfo : changed conditional boundary &rarr; SURVIVED<br/>
+
+2. calculateBudgetInfo : Replaced integer subtraction with addition &rarr; SURVIVED<br/>
+
+3. calculateBudgetInfo : Replaced integer subtraction with addition &rarr; NO_COVERAGE<br/>
+
+4. calculateBudgetInfo : Replaced integer subtraction with addition &rarr; NO_COVERAGE<br/>
+
+5. calculateBudgetInfo : negated conditional &rarr; SURVIVED<br/>
+
+6. calculateBudgetInfo : Replaced integer subtraction with addition &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>            int monthIndex = thisMonthValue - i &#60; 0 ? NUM_OF_MONTHS - (thisMonthValue - i) : thisMonthValue - i;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5d9e0453_155'/>
+155
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_155'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            months.add(MONTHS[monthIndex]);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5d9e0453_156'/>
+156
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_156'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5d9e0453_157'/>
+157
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_157'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5d9e0453_158'/>
+158
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_158'>1</a>
+<span>
+
+1. calculateBudgetInfo : removed call to ay2021s1_cs2103_w16_3/finesse/model/budget/MonthlyBudget::calculateBudget &rarr; SURVIVED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        calculateBudget();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5d9e0453_159'/>
+159
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_159'>1</a>
+<span>
+
+1. calculateBudgetInfo : removed call to ay2021s1_cs2103_w16_3/finesse/model/budget/MonthlyBudget::calculateSavings &rarr; SURVIVED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        calculateSavings();</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5d9e0453_160'/>
+160
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_160'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5d9e0453_161'/>
+161
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_161'>1</a>
+<span>
+
+1. calculateBudgetInfo : removed call to ay2021s1_cs2103_w16_3/finesse/model/budget/MonthlyBudget::callChangeListeners &rarr; SURVIVED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        callChangeListeners();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5d9e0453_162'/>
+162
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_162'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5d9e0453_163'/>
+163
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_163'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5d9e0453_164'/>
+164
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_164'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5d9e0453_165'/>
+165
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_165'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * Calculates the user&#39;s remaining budget for the month</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5d9e0453_166'/>
+166
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_166'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * by deducting this month&#39;s expenses from the monthly expense limit.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5d9e0453_167'/>
+167
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_167'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * If the result is positive, the result is set as the remaining budget.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5d9e0453_168'/>
+168
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_168'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * If the result is negative, the magnitude of the result is set as the budget deficit.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5d9e0453_169'/>
+169
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_169'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5d9e0453_170'/>
+170
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_170'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private void calculateBudget() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5d9e0453_171'/>
+171
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_171'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        BigDecimal expenseLimit = monthlyExpenseLimit.getAmount().getValue();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5d9e0453_172'/>
+172
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_172'>1</a>
+<span>
+
+1. calculateBudget : Replaced integer subtraction with addition &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        BigDecimal remainingBudget = expenseLimit.subtract(monthlyExpenses.get(monthlyExpenses.size() - 1));</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5d9e0453_173'/>
+173
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_173'>1</a>
+<span>
+
+1. calculateBudget : removed call to ay2021s1_cs2103_w16_3/finesse/model/budget/MonthlyBudget::setRemainingBudget &rarr; SURVIVED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        setRemainingBudget(Amount.of(remainingBudget));</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5d9e0453_174'/>
+174
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_174'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5d9e0453_175'/>
+175
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_175'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5d9e0453_176'/>
+176
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_176'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5d9e0453_177'/>
+177
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_177'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * Calculates the user&#39;s current savings for the month</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5d9e0453_178'/>
+178
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_178'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * by deducting this month&#39;s expenses from this month&#39;s incomes.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5d9e0453_179'/>
+179
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_179'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * If the result is positive, the result is set as the current savings.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5d9e0453_180'/>
+180
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_180'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * If the result is negative, the magnitude of the result is set as the savings deficit.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5d9e0453_181'/>
+181
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_181'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5d9e0453_182'/>
+182
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_182'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private void calculateSavings() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5d9e0453_183'/>
+183
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_183'>1</a>
+<span>
+
+1. calculateSavings : removed call to javafx/collections/ObservableList::clear &rarr; SURVIVED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        monthlySavings.clear();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5d9e0453_184'/>
+184
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_184'>2</a>
+<span>
+
+1. calculateSavings : changed conditional boundary &rarr; KILLED<br/>
+
+2. calculateSavings : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        for (int i = 0; i &#60; monthlyIncomes.size(); i++) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5d9e0453_185'/>
+185
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_185'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            BigDecimal savings = monthlyIncomes.get(i).subtract(monthlyExpenses.get(i));</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5d9e0453_186'/>
+186
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_186'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            monthlySavings.add(savings);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5d9e0453_187'/>
+187
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_187'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5d9e0453_188'/>
+188
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_188'>1</a>
+<span>
+
+1. calculateSavings : Replaced integer subtraction with addition &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        BigDecimal thisMonthSavings = monthlySavings.get(monthlyIncomes.size() - 1);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5d9e0453_189'/>
+189
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_189'>1</a>
+<span>
+
+1. calculateSavings : removed call to ay2021s1_cs2103_w16_3/finesse/model/budget/MonthlyBudget::setCurrentSavings &rarr; SURVIVED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        setCurrentSavings(Amount.of(thisMonthSavings));</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5d9e0453_190'/>
+190
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_190'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5d9e0453_191'/>
+191
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_191'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5d9e0453_192'/>
+192
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_192'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Override</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5d9e0453_193'/>
+193
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_193'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public boolean equals(Object other) {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5d9e0453_194'/>
+194
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_194'>3</a>
+<span>
+
+1. equals : replaced boolean return with true for ay2021s1_cs2103_w16_3/finesse/model/budget/MonthlyBudget::equals &rarr; NO_COVERAGE<br/>
+
+2. equals : negated conditional &rarr; NO_COVERAGE<br/>
+
+3. equals : negated conditional &rarr; NO_COVERAGE<br/>
+
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>        return other == this // short circuit if same object</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5d9e0453_195'/>
+195
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_195'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                || (other instanceof MonthlyBudget // instanceof handles nulls</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5d9e0453_196'/>
+196
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_196'>1</a>
+<span>
+
+1. equals : negated conditional &rarr; NO_COVERAGE<br/>
+
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>                &#38;&#38; monthlyExpenseLimit.equals(((MonthlyBudget) other).monthlyExpenseLimit));</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5d9e0453_197'/>
+197
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_197'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5d9e0453_198'/>
+198
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_198'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>}</span></pre></td></tr>
+
+
+
+<tr><td></td><td></td><td><h2>Mutations</h2></td></tr>
+
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@5d9e0453_57'>57</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_57'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getMonthlyExpenseLimit<br/><b>Killed by : </b>ay2021s1_cs2103_w16_3.finesse.model.ModelManagerTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.model.ModelManagerTest]/[method:setFinanceTrackerFilePath_validPath_setsFinanceTrackerFilePath()]</span></span> replaced return value with null for ay2021s1_cs2103_w16_3/finesse/model/budget/MonthlyBudget::getMonthlyExpenseLimit &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@5d9e0453_61'>61</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_61'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>setMonthlyExpenseLimit<br/><b>Killed by : </b>none</span></span> removed call to ay2021s1_cs2103_w16_3/finesse/model/budget/ObservableAmount::setValue &rarr; SURVIVED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@5d9e0453_65'>65</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_65'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getMonthlySavingsGoal<br/><b>Killed by : </b>ay2021s1_cs2103_w16_3.finesse.model.ModelManagerTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.model.ModelManagerTest]/[method:setFinanceTrackerFilePath_validPath_setsFinanceTrackerFilePath()]</span></span> replaced return value with null for ay2021s1_cs2103_w16_3/finesse/model/budget/MonthlyBudget::getMonthlySavingsGoal &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@5d9e0453_69'>69</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_69'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>setMonthlySavingsGoal<br/><b>Killed by : </b>none</span></span> removed call to ay2021s1_cs2103_w16_3/finesse/model/budget/ObservableAmount::setValue &rarr; SURVIVED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@5d9e0453_73'>73</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_73'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getRemainingBudget<br/><b>Killed by : </b>none</span></span> replaced return value with null for ay2021s1_cs2103_w16_3/finesse/model/budget/MonthlyBudget::getRemainingBudget &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@5d9e0453_77'>77</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_77'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>setRemainingBudget<br/><b>Killed by : </b>none</span></span> removed call to ay2021s1_cs2103_w16_3/finesse/model/budget/ObservableAmount::setValue &rarr; SURVIVED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@5d9e0453_81'>81</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_81'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getCurrentSavings<br/><b>Killed by : </b>none</span></span> replaced return value with null for ay2021s1_cs2103_w16_3/finesse/model/budget/MonthlyBudget::getCurrentSavings &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@5d9e0453_85'>85</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_85'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>setCurrentSavings<br/><b>Killed by : </b>none</span></span> removed call to ay2021s1_cs2103_w16_3/finesse/model/budget/ObservableAmount::setValue &rarr; SURVIVED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@5d9e0453_89'>89</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_89'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getMonthlyExpenses<br/><b>Killed by : </b>none</span></span> replaced return value with null for ay2021s1_cs2103_w16_3/finesse/model/budget/MonthlyBudget::getMonthlyExpenses &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@5d9e0453_93'>93</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_93'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getMonthlyIncomes<br/><b>Killed by : </b>none</span></span> replaced return value with null for ay2021s1_cs2103_w16_3/finesse/model/budget/MonthlyBudget::getMonthlyIncomes &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@5d9e0453_97'>97</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_97'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getMonthlySavings<br/><b>Killed by : </b>none</span></span> replaced return value with null for ay2021s1_cs2103_w16_3/finesse/model/budget/MonthlyBudget::getMonthlySavings &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@5d9e0453_101'>101</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_101'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getMonths<br/><b>Killed by : </b>none</span></span> replaced return value with null for ay2021s1_cs2103_w16_3/finesse/model/budget/MonthlyBudget::getMonths &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@5d9e0453_109'>109</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_109'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>callChangeListeners<br/><b>Killed by : </b>none</span></span> removed call to java/util/Collection::forEach &rarr; SURVIVED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@5d9e0453_124'>124</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_124'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>calculateBudgetInfo<br/><b>Killed by : </b>none</span></span> removed call to javafx/collections/ObservableList::clear &rarr; SURVIVED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@5d9e0453_125'>125</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_125'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>calculateBudgetInfo<br/><b>Killed by : </b>ay2021s1_cs2103_w16_3.finesse.model.ModelManagerTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.model.ModelManagerTest]/[method:getFilteredTransactionLists_clear_updatesList()]</span></span> removed call to javafx/collections/ObservableList::clear &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@5d9e0453_126'>126</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_126'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>calculateBudgetInfo<br/><b>Killed by : </b>none</span></span> removed call to javafx/collections/ObservableList::clear &rarr; SURVIVED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@5d9e0453_132'>132</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_132'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>calculateBudgetInfo<br/><b>Killed by : </b>ay2021s1_cs2103_w16_3.finesse.model.ModelManagerTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.model.ModelManagerTest]/[method:setFinanceTrackerFilePath_validPath_setsFinanceTrackerFilePath()]</span></span> removed call to java/util/Arrays::fill &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@5d9e0453_133'>133</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_133'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>calculateBudgetInfo<br/><b>Killed by : </b>ay2021s1_cs2103_w16_3.finesse.model.ModelManagerTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.model.ModelManagerTest]/[method:setFinanceTrackerFilePath_validPath_setsFinanceTrackerFilePath()]</span></span> removed call to java/util/Arrays::fill &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@5d9e0453_137'>137</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_137'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>calculateBudgetInfo<br/><b>Killed by : </b>none</span></span> changed conditional boundary &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>calculateBudgetInfo<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; SURVIVED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@5d9e0453_138'>138</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_138'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>calculateBudgetInfo<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; SURVIVED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@5d9e0453_139'>139</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_139'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>calculateBudgetInfo<br/><b>Killed by : </b>ay2021s1_cs2103_w16_3.finesse.model.FinanceTrackerTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.model.FinanceTrackerTest]/[method:resetData_withValidReadOnlyFinanceTracker_replacesData()]</span></span> Replaced integer subtraction with addition &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>calculateBudgetInfo<br/><b>Killed by : </b>ay2021s1_cs2103_w16_3.finesse.model.FinanceTrackerTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.model.FinanceTrackerTest]/[method:resetData_withValidReadOnlyFinanceTracker_replacesData()]</span></span> Replaced integer subtraction with addition &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>calculateBudgetInfo<br/><b>Killed by : </b>ay2021s1_cs2103_w16_3.finesse.model.FinanceTrackerTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.model.FinanceTrackerTest]/[method:resetData_withValidReadOnlyFinanceTracker_replacesData()]</span></span> Replaced integer subtraction with addition &rarr; KILLED</p> <p class='KILLED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>calculateBudgetInfo<br/><b>Killed by : </b>ay2021s1_cs2103_w16_3.finesse.model.FinanceTrackerTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.model.FinanceTrackerTest]/[method:resetData_withValidReadOnlyFinanceTracker_replacesData()]</span></span> Replaced integer subtraction with addition &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@5d9e0453_143'>143</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_143'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>calculateBudgetInfo<br/><b>Killed by : </b>ay2021s1_cs2103_w16_3.finesse.model.FinanceTrackerTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.model.FinanceTrackerTest]/[method:resetData_withValidReadOnlyFinanceTracker_replacesData()]</span></span> Replaced integer subtraction with addition &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>calculateBudgetInfo<br/><b>Killed by : </b>ay2021s1_cs2103_w16_3.finesse.model.FinanceTrackerTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.model.FinanceTrackerTest]/[method:resetData_withValidReadOnlyFinanceTracker_replacesData()]</span></span> Replaced integer subtraction with addition &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>calculateBudgetInfo<br/><b>Killed by : </b>ay2021s1_cs2103_w16_3.finesse.model.FinanceTrackerTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.model.FinanceTrackerTest]/[method:resetData_withValidReadOnlyFinanceTracker_replacesData()]</span></span> Replaced integer subtraction with addition &rarr; KILLED</p> <p class='KILLED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>calculateBudgetInfo<br/><b>Killed by : </b>ay2021s1_cs2103_w16_3.finesse.model.FinanceTrackerTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.model.FinanceTrackerTest]/[method:resetData_withValidReadOnlyFinanceTracker_replacesData()]</span></span> Replaced integer subtraction with addition &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@5d9e0453_153'>153</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_153'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>calculateBudgetInfo<br/><b>Killed by : </b>none</span></span> changed conditional boundary &rarr; SURVIVED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>calculateBudgetInfo<br/><b>Killed by : </b>ay2021s1_cs2103_w16_3.finesse.model.ModelManagerTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.model.ModelManagerTest]/[method:setFinanceTrackerFilePath_validPath_setsFinanceTrackerFilePath()]</span></span> Changed increment from -1 to 1 &rarr; KILLED</p> <p class='SURVIVED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>calculateBudgetInfo<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; SURVIVED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@5d9e0453_154'>154</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_154'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>calculateBudgetInfo<br/><b>Killed by : </b>none</span></span> changed conditional boundary &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>calculateBudgetInfo<br/><b>Killed by : </b>none</span></span> Replaced integer subtraction with addition &rarr; SURVIVED</p> <p class='NO_COVERAGE'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>calculateBudgetInfo<br/><b>Killed by : </b>none</span></span> Replaced integer subtraction with addition &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>calculateBudgetInfo<br/><b>Killed by : </b>none</span></span> Replaced integer subtraction with addition &rarr; NO_COVERAGE</p> <p class='KILLED'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>calculateBudgetInfo<br/><b>Killed by : </b>ay2021s1_cs2103_w16_3.finesse.model.ModelManagerTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.model.ModelManagerTest]/[method:setFinanceTrackerFilePath_validPath_setsFinanceTrackerFilePath()]</span></span> Replaced integer subtraction with addition &rarr; KILLED</p> <p class='SURVIVED'><span class='pop'>6.<span><b>6</b><br/><b>Location : </b>calculateBudgetInfo<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; SURVIVED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@5d9e0453_158'>158</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_158'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>calculateBudgetInfo<br/><b>Killed by : </b>none</span></span> removed call to ay2021s1_cs2103_w16_3/finesse/model/budget/MonthlyBudget::calculateBudget &rarr; SURVIVED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@5d9e0453_159'>159</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_159'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>calculateBudgetInfo<br/><b>Killed by : </b>none</span></span> removed call to ay2021s1_cs2103_w16_3/finesse/model/budget/MonthlyBudget::calculateSavings &rarr; SURVIVED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@5d9e0453_161'>161</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_161'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>calculateBudgetInfo<br/><b>Killed by : </b>none</span></span> removed call to ay2021s1_cs2103_w16_3/finesse/model/budget/MonthlyBudget::callChangeListeners &rarr; SURVIVED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@5d9e0453_172'>172</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_172'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>calculateBudget<br/><b>Killed by : </b>ay2021s1_cs2103_w16_3.finesse.model.ModelManagerTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.model.ModelManagerTest]/[method:setFinanceTrackerFilePath_validPath_setsFinanceTrackerFilePath()]</span></span> Replaced integer subtraction with addition &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@5d9e0453_173'>173</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_173'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>calculateBudget<br/><b>Killed by : </b>none</span></span> removed call to ay2021s1_cs2103_w16_3/finesse/model/budget/MonthlyBudget::setRemainingBudget &rarr; SURVIVED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@5d9e0453_183'>183</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_183'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>calculateSavings<br/><b>Killed by : </b>none</span></span> removed call to javafx/collections/ObservableList::clear &rarr; SURVIVED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@5d9e0453_184'>184</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_184'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>calculateSavings<br/><b>Killed by : </b>ay2021s1_cs2103_w16_3.finesse.model.ModelManagerTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.model.ModelManagerTest]/[method:setFinanceTrackerFilePath_validPath_setsFinanceTrackerFilePath()]</span></span> changed conditional boundary &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>calculateSavings<br/><b>Killed by : </b>ay2021s1_cs2103_w16_3.finesse.model.ModelManagerTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.model.ModelManagerTest]/[method:setFinanceTrackerFilePath_validPath_setsFinanceTrackerFilePath()]</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@5d9e0453_188'>188</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_188'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>calculateSavings<br/><b>Killed by : </b>ay2021s1_cs2103_w16_3.finesse.model.ModelManagerTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.model.ModelManagerTest]/[method:setFinanceTrackerFilePath_validPath_setsFinanceTrackerFilePath()]</span></span> Replaced integer subtraction with addition &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@5d9e0453_189'>189</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_189'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>calculateSavings<br/><b>Killed by : </b>none</span></span> removed call to ay2021s1_cs2103_w16_3/finesse/model/budget/MonthlyBudget::setCurrentSavings &rarr; SURVIVED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@5d9e0453_194'>194</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_194'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>none</span></span> replaced boolean return with true for ay2021s1_cs2103_w16_3/finesse/model/budget/MonthlyBudget::equals &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@5d9e0453_196'>196</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@5d9e0453_196'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+
+</table>
+
+
+<h2>Active mutators</h2>
+<ul>
+
+<li class='mutator'>BOOLEAN_FALSE_RETURN</li>
+
+<li class='mutator'>BOOLEAN_TRUE_RETURN</li>
+
+<li class='mutator'>CONDITIONALS_BOUNDARY_MUTATOR</li>
+
+<li class='mutator'>EMPTY_RETURN_VALUES</li>
+
+<li class='mutator'>INCREMENTS_MUTATOR</li>
+
+<li class='mutator'>INVERT_NEGS_MUTATOR</li>
+
+<li class='mutator'>MATH_MUTATOR</li>
+
+<li class='mutator'>NEGATE_CONDITIONALS_MUTATOR</li>
+
+<li class='mutator'>NULL_RETURN_VALUES</li>
+
+<li class='mutator'>PRIMITIVE_RETURN_VALS_MUTATOR</li>
+
+<li class='mutator'>VOID_METHOD_CALL_MUTATOR</li>
+
+</ul>
+
+<h2>Tests examined</h2>
+<ul>
+<li>ay2021s1_cs2103_w16_3.finesse.model.ModelManagerTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.model.ModelManagerTest]/[method:setUserPrefs_nullUserPrefs_throwsNullPointerException()] (2 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.logic.commands.bookmarkcommands.EditBookmarkExpenseCommandTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.logic.commands.bookmarkcommands.EditBookmarkExpenseCommandTest]/[method:equals()] (2 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.logic.commands.DeleteCommandTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.logic.commands.DeleteCommandTest]/[method:equals()] (2 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.model.ModelManagerTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.model.ModelManagerTest]/[method:setUserPrefs_validUserPrefs_copiesUserPrefs()] (1 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.logic.commands.EditCommandTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.logic.commands.EditCommandTest]/[method:execute_allFieldsSpecifiedUnfilteredList_success()] (2 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.logic.LogicManagerTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.logic.LogicManagerTest]/[method:getFinanceTrackerFilePath()] (3 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.logic.commands.bookmarkcommands.ConvertBookmarkIncomeCommandTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.logic.commands.bookmarkcommands.ConvertBookmarkIncomeCommandTest]/[method:equals()] (1 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.logic.commands.bookmarkcommands.ConvertBookmarkExpenseCommandTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.logic.commands.bookmarkcommands.ConvertBookmarkExpenseCommandTest]/[method:execute_invalidIndexUnfilteredList_throwsCommandException()] (2 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.logic.commands.EditCommandTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.logic.commands.EditCommandTest]/[method:equals()] (8 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.logic.commands.ListExpenseCommandTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.logic.commands.ListExpenseCommandTest]/[method:execute_showsAllExpenses()] (3 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.logic.commands.bookmarkcommands.EditBookmarkIncomeCommandTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.logic.commands.bookmarkcommands.EditBookmarkIncomeCommandTest]/[method:execute_someFieldsSpecifiedUnfilteredList_success()] (6 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.logic.commands.EditExpenseCommandTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.logic.commands.EditExpenseCommandTest]/[method:equals()] (3 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.logic.commands.bookmarkcommands.DeleteBookmarkIncomeCommandTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.logic.commands.bookmarkcommands.DeleteBookmarkIncomeCommandTest]/[method:execute_validIndexFilteredList_success()] (2 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.storage.JsonFinanceTrackerStorageTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.storage.JsonFinanceTrackerStorageTest]/[method:readAndSaveFinanceTracker_allInOrder_success()] (9 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.logic.commands.budget.SetSavingsGoalCommandTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.logic.commands.budget.SetSavingsGoalCommandTest]/[method:constructor_nullAmount_throwsNullPointerException()] (5 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.logic.commands.ClearCommandTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.logic.commands.ClearCommandTest]/[method:execute_nonEmptyFinanceTracker_success()] (2 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.logic.LogicManagerTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.logic.LogicManagerTest]/[method:setGuiSettings_nullGuiSettings_throwsNullPointerException()] (2 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.model.ModelManagerTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.model.ModelManagerTest]/[method:getFilteredTransactionLists_clear_updatesList()] (2 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.logic.commands.FindCommandTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.logic.commands.FindCommandTest]/[method:execute_zeroKeywords_noTransactionsFound()] (7 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.model.ModelManagerTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.model.ModelManagerTest]/[method:getFilteredTransactionList_modifyList_throwsUnsupportedOperationException()] (3 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.logic.commands.bookmarkcommands.ConvertBookmarkExpenseCommandTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.logic.commands.bookmarkcommands.ConvertBookmarkExpenseCommandTest]/[method:execute_validIndexUnfilteredList_success()] (2 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.logic.commands.TabCommandTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.logic.commands.TabCommandTest]/[method:execute_invalidIndex_throwsCommandException()] (2 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.logic.commands.bookmarkcommands.EditBookmarkIncomeCommandTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.logic.commands.bookmarkcommands.EditBookmarkIncomeCommandTest]/[method:execute_invalidBookmarkIncomeIndexFilteredList_failure()] (3 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.logic.commands.EditExpenseCommandTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.logic.commands.EditExpenseCommandTest]/[method:execute_someFieldsSpecifiedUnfilteredList_success()] (2 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.logic.LogicManagerTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.logic.LogicManagerTest]/[method:execute_commandExecutionError_throwsCommandException()] (6 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.logic.commands.FindCommandTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.logic.commands.FindCommandTest]/[method:execute_multipleKeywords_multipleTransactionsFound()] (3 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.logic.commands.EditIncomeCommandTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.logic.commands.EditIncomeCommandTest]/[method:execute_someFieldsSpecifiedUnfilteredList_success()] (5 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.logic.LogicManagerTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.logic.LogicManagerTest]/[method:execute_storageThrowsIoException_throwsCommandException()] (5 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.logic.commands.DeleteExpenseCommandTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.logic.commands.DeleteExpenseCommandTest]/[method:execute_validIndexFilteredList_success()] (3 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.logic.commands.ListTransactionCommandTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.logic.commands.ListTransactionCommandTest]/[method:execute_showsAllTransactions()] (2 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.logic.LogicManagerTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.logic.LogicManagerTest]/[method:execute_validCommand_success()] (7 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.logic.commands.bookmarkcommands.DeleteBookmarkIncomeCommandTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.logic.commands.bookmarkcommands.DeleteBookmarkIncomeCommandTest]/[method:execute_validIndexUnfilteredList_success()] (2 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.logic.commands.bookmarkcommands.EditBookmarkIncomeCommandTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.logic.commands.bookmarkcommands.EditBookmarkIncomeCommandTest]/[method:equals()] (3 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.logic.commands.bookmarkcommands.DeleteBookmarkIncomeCommandTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.logic.commands.bookmarkcommands.DeleteBookmarkIncomeCommandTest]/[method:equals()] (2 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.logic.commands.bookmarkcommands.ConvertBookmarkIncomeCommandTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.logic.commands.bookmarkcommands.ConvertBookmarkIncomeCommandTest]/[method:execute_validIndexFilteredList_success()] (2 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.logic.commands.bookmarkcommands.DeleteBookmarkIncomeCommandTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.logic.commands.bookmarkcommands.DeleteBookmarkIncomeCommandTest]/[method:execute_invalidIndexUnfilteredList_throwsCommandException()] (2 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.logic.commands.DeleteExpenseCommandTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.logic.commands.DeleteExpenseCommandTest]/[method:execute_invalidIndexUnfilteredList_throwsCommandException()] (2 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.logic.commands.ListIncomeCommandTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.logic.commands.ListIncomeCommandTest]/[method:execute_showAllIncomes()] (3 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.logic.commands.bookmarkcommands.ConvertBookmarkIncomeCommandTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.logic.commands.bookmarkcommands.ConvertBookmarkIncomeCommandTest]/[method:execute_invalidIndexFilteredList_throwsCommandException()] (2 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.logic.commands.EditCommandTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.logic.commands.EditCommandTest]/[method:execute_filteredList_success()] (3 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.logic.LogicManagerTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.logic.LogicManagerTest]/[method:getFilteredTransactionList_modifyList_throwsUnsupportedOperationException()] (4 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.logic.commands.budget.SetExpenseLimitCommandTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.logic.commands.budget.SetExpenseLimitCommandTest]/[method:execute_validAmount_success()] (2 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.logic.commands.DeleteExpenseCommandTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.logic.commands.DeleteExpenseCommandTest]/[method:equals()] (2 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.model.ModelManagerTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.model.ModelManagerTest]/[method:constructor()] (3 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.logic.commands.EditCommandTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.logic.commands.EditCommandTest]/[method:execute_someFieldsSpecifiedUnfilteredList_success()] (3 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.AppParametersTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.AppParametersTest]/[method:parse_invalidConfigPath_success()] (5 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.logic.commands.DeleteCommandTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.logic.commands.DeleteCommandTest]/[method:execute_invalidIndexFilteredList_throwsCommandException()] (2 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.logic.commands.bookmarkcommands.DeleteBookmarkIncomeCommandTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.logic.commands.bookmarkcommands.DeleteBookmarkIncomeCommandTest]/[method:execute_invalidIndexFilteredList_throwsCommandException()] (2 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.logic.commands.ExitCommandTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.logic.commands.ExitCommandTest]/[method:execute_exit_success()] (2 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.logic.commands.bookmarkcommands.ConvertBookmarkExpenseCommandTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.logic.commands.bookmarkcommands.ConvertBookmarkExpenseCommandTest]/[method:equals()] (1 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.logic.commands.DeleteCommandTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.logic.commands.DeleteCommandTest]/[method:execute_invalidIndexUnfilteredList_throwsCommandException()] (2 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.model.ModelManagerTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.model.ModelManagerTest]/[method:getFilteredExpenseList_modifyList_throwsUnsupportedOperationException()] (2 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.logic.commands.TabCommandTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.logic.commands.TabCommandTest]/[method:execute_switchToAnalyticsTab_success()] (2 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.logic.commands.DeleteExpenseCommandTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.logic.commands.DeleteExpenseCommandTest]/[method:execute_invalidIndexFilteredList_throwsCommandException()] (3 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.logic.commands.EditIncomeCommandTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.logic.commands.EditIncomeCommandTest]/[method:execute_filteredList_success()] (4 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.logic.commands.bookmarkcommands.EditBookmarkExpenseCommandTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.logic.commands.bookmarkcommands.EditBookmarkExpenseCommandTest]/[method:execute_allFieldsSpecifiedUnfilteredList_success()] (3 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.logic.commands.bookmarkcommands.DeleteBookmarkExpenseCommandTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.logic.commands.bookmarkcommands.DeleteBookmarkExpenseCommandTest]/[method:equals()] (2 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.logic.commands.bookmarkcommands.ConvertBookmarkExpenseCommandTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.logic.commands.bookmarkcommands.ConvertBookmarkExpenseCommandTest]/[method:execute_invalidIndexFilteredList_throwsCommandException()] (2 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.logic.commands.FindCommandTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.logic.commands.FindCommandTest]/[method:equals()] (3 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.logic.commands.EditIncomeCommandTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.logic.commands.EditIncomeCommandTest]/[method:execute_invalidIncomeIndexUnfilteredList_failure()] (2 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.logic.commands.EditCommandTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.logic.commands.EditCommandTest]/[method:execute_noFieldSpecifiedUnfilteredList_success()] (4 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.logic.commands.DeleteIncomeCommandTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.logic.commands.DeleteIncomeCommandTest]/[method:equals()] (2 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.logic.LogicManagerTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.logic.LogicManagerTest]/[method:getGuiSettings()] (3 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.model.FinanceTrackerTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.model.FinanceTrackerTest]/[method:resetData_withValidReadOnlyFinanceTracker_replacesData()] (2 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.logic.commands.TabCommandTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.logic.commands.TabCommandTest]/[method:execute_switchToIncomeTab_success()] (3 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.logic.commands.EditExpenseCommandTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.logic.commands.EditExpenseCommandTest]/[method:execute_invalidExpenseIndexUnfilteredList_failure()] (3 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.logic.commands.DeleteCommandTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.logic.commands.DeleteCommandTest]/[method:execute_validIndexUnfilteredList_success()] (2 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.logic.commands.EditIncomeCommandTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.logic.commands.EditIncomeCommandTest]/[method:execute_invalidIncomeIndexFilteredList_failure()] (3 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.logic.commands.bookmarkcommands.ConvertBookmarkExpenseCommandTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.logic.commands.bookmarkcommands.ConvertBookmarkExpenseCommandTest]/[method:execute_validIndexFilteredList_success()] (2 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.storage.StorageManagerTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.storage.StorageManagerTest]/[method:financeTrackerReadSave()] (5 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.model.ModelManagerTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.model.ModelManagerTest]/[method:setGuiSettings_nullGuiSettings_throwsNullPointerException()] (2 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.logic.commands.bookmarkcommands.DeleteBookmarkExpenseCommandTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.logic.commands.bookmarkcommands.DeleteBookmarkExpenseCommandTest]/[method:execute_validIndexFilteredList_success()] (2 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.model.ModelManagerTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.model.ModelManagerTest]/[method:getFilteredTransactionLists_deleteTransaction_updatesList()] (2 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.logic.commands.DeleteExpenseCommandTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.logic.commands.DeleteExpenseCommandTest]/[method:execute_validIndexUnfilteredList_success()] (3 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.logic.commands.budget.SetSavingsGoalCommandTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.logic.commands.budget.SetSavingsGoalCommandTest]/[method:execute_validAmount_success()] (6 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.logic.commands.EditExpenseCommandTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.logic.commands.EditExpenseCommandTest]/[method:execute_invalidExpenseIndexFilteredList_failure()] (3 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.logic.commands.FindTransactionCommandTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.logic.commands.FindTransactionCommandTest]/[method:execute_multipleKeywords_multipleTransactionsFound()] (3 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.model.ModelManagerTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.model.ModelManagerTest]/[method:setFinanceTrackerFilePath_validPath_setsFinanceTrackerFilePath()] (1 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.logic.commands.bookmarkcommands.EditBookmarkIncomeCommandTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.logic.commands.bookmarkcommands.EditBookmarkIncomeCommandTest]/[method:execute_allFieldsSpecifiedUnfilteredList_success()] (3 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.model.ModelManagerTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.model.ModelManagerTest]/[method:setGuiSettings_validGuiSettings_setsGuiSettings()] (1 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.logic.commands.bookmarkcommands.EditBookmarkIncomeCommandTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.logic.commands.bookmarkcommands.EditBookmarkIncomeCommandTest]/[method:execute_invalidBookmarkIncomeIndexUnfilteredList_failure()] (3 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.logic.commands.FindIncomeCommandTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.logic.commands.FindIncomeCommandTest]/[method:execute_zeroKeywords_noIncomesFound()] (3 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.logic.commands.FindTransactionCommandTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.logic.commands.FindTransactionCommandTest]/[method:equals()] (2 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.logic.commands.EditExpenseCommandTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.logic.commands.EditExpenseCommandTest]/[method:execute_allFieldsSpecifiedUnfilteredList_success()] (3 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.logic.commands.FindIncomeCommandTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.logic.commands.FindIncomeCommandTest]/[method:execute_multipleKeywords_multipleIncomesFound()] (10 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.logic.commands.FindTransactionCommandTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.logic.commands.FindTransactionCommandTest]/[method:execute_zeroKeywords_noTransactionsFound()] (4 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.model.ModelManagerTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.model.ModelManagerTest]/[method:setFinanceTrackerFilePath_nullPath_throwsNullPointerException()] (2 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.logic.commands.HelpCommandTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.logic.commands.HelpCommandTest]/[method:execute_help_success()] (3 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.logic.commands.FindExpenseCommandTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.logic.commands.FindExpenseCommandTest]/[method:equals()] (3 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.logic.commands.EditExpenseCommandTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.logic.commands.EditExpenseCommandTest]/[method:execute_noFieldSpecifiedUnfilteredList_success()] (3 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.logic.commands.ClearCommandTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.logic.commands.ClearCommandTest]/[method:execute_nonEmptyFinanceTracker_intermediateCommand()] (4 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.logic.LogicManagerTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.logic.LogicManagerTest]/[method:getFinanceTracker()] (4 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.logic.commands.ListTransactionCommandTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.logic.commands.ListTransactionCommandTest]/[method:execute_hasSomeExpense()] (2 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.logic.commands.ListTransactionCommandTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.logic.commands.ListTransactionCommandTest]/[method:execute_hasSomeIncome()] (3 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.model.ModelManagerTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.model.ModelManagerTest]/[method:getFilteredIncomeList_modifyList_throwsUnsupportedOperationException()] (2 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.logic.commands.ClearCommandTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.logic.commands.ClearCommandTest]/[method:execute_emptyFinanceTracker_success()] (3 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.logic.commands.FindExpenseCommandTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.logic.commands.FindExpenseCommandTest]/[method:execute_zeroKeywords_noExpensesFound()] (4 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.logic.commands.EditIncomeCommandTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.logic.commands.EditIncomeCommandTest]/[method:equals()] (3 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.logic.commands.DeleteIncomeCommandTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.logic.commands.DeleteIncomeCommandTest]/[method:execute_invalidIndexUnfilteredList_throwsCommandException()] (3 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.logic.commands.EditCommandTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.logic.commands.EditCommandTest]/[method:execute_invalidTransactionIndexFilteredList_failure()] (2 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.logic.LogicManagerTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.logic.LogicManagerTest]/[method:getFilteredExpenseList_modifyList_throwsUnsupportedOperationException()] (3 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.model.ModelManagerTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.model.ModelManagerTest]/[method:getFilteredTransactionLists_addTransactions_updatesList()] (1 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.logic.commands.EditExpenseCommandTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.logic.commands.EditExpenseCommandTest]/[method:execute_filteredList_success()] (3 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.logic.commands.bookmarkcommands.EditBookmarkExpenseCommandTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.logic.commands.bookmarkcommands.EditBookmarkExpenseCommandTest]/[method:execute_invalidBookmarkExpenseIndexUnfilteredList_failure()] (2 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.model.ModelManagerTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.model.ModelManagerTest]/[method:equals()] (3 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.model.ModelManagerTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.model.ModelManagerTest]/[method:getFilteredBookmarkIncomeList_modifyList_throwsUnsupportedOperationException()] (3 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.logic.commands.bookmarkcommands.DeleteBookmarkExpenseCommandTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.logic.commands.bookmarkcommands.DeleteBookmarkExpenseCommandTest]/[method:execute_invalidIndexUnfilteredList_throwsCommandException()] (2 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.logic.commands.TabCommandTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.logic.commands.TabCommandTest]/[method:execute_switchToOverviewTab_success()] (1 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.logic.commands.budget.SetExpenseLimitCommandTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.logic.commands.budget.SetExpenseLimitCommandTest]/[method:constructor_nullAmount_throwsNullPointerException()] (2 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.logic.commands.TabCommandTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.logic.commands.TabCommandTest]/[method:execute_switchToExpensesTab_success()] (2 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.logic.commands.DeleteIncomeCommandTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.logic.commands.DeleteIncomeCommandTest]/[method:execute_invalidIndexFilteredList_throwsCommandException()] (2 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.logic.commands.bookmarkcommands.DeleteBookmarkExpenseCommandTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.logic.commands.bookmarkcommands.DeleteBookmarkExpenseCommandTest]/[method:execute_invalidIndexFilteredList_throwsCommandException()] (1 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.logic.LogicManagerTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.logic.LogicManagerTest]/[method:getFilteredIncomeList_modifyList_throwsUnsupportedOperationException()] (3 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.model.ModelManagerTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.model.ModelManagerTest]/[method:getFilteredTransactionLists_editTransaction_updatesList()] (2 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.logic.LogicManagerTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.logic.LogicManagerTest]/[method:execute_invalidCommandFormat_throwsParseException()] (3 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.logic.commands.bookmarkcommands.DeleteBookmarkExpenseCommandTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.logic.commands.bookmarkcommands.DeleteBookmarkExpenseCommandTest]/[method:execute_validIndexUnfilteredList_success()] (2 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.logic.commands.bookmarkcommands.EditBookmarkExpenseCommandTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.logic.commands.bookmarkcommands.EditBookmarkExpenseCommandTest]/[method:execute_someFieldsSpecifiedUnfilteredList_success()] (4 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.logic.commands.ListCommandTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.logic.commands.ListCommandTest]/[method:execute_listIsNotFiltered_showsSameList()] (3 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.logic.commands.ListCommandTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.logic.commands.ListCommandTest]/[method:execute_listIsFiltered_showsEverything()] (2 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.logic.commands.bookmarkcommands.ConvertBookmarkIncomeCommandTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.logic.commands.bookmarkcommands.ConvertBookmarkIncomeCommandTest]/[method:execute_validIndexUnfilteredList_success()] (1 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.logic.commands.DeleteIncomeCommandTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.logic.commands.DeleteIncomeCommandTest]/[method:execute_validIndexUnfilteredList_success()] (3 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.logic.commands.EditIncomeCommandTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.logic.commands.EditIncomeCommandTest]/[method:execute_allFieldsSpecifiedUnfilteredList_success()] (3 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.logic.commands.bookmarkcommands.ConvertBookmarkIncomeCommandTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.logic.commands.bookmarkcommands.ConvertBookmarkIncomeCommandTest]/[method:execute_invalidIndexUnfilteredList_throwsCommandException()] (3 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.logic.commands.FindExpenseCommandTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.logic.commands.FindExpenseCommandTest]/[method:execute_multipleKeywords_multipleExpensesFound()] (2 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.logic.commands.DeleteCommandTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.logic.commands.DeleteCommandTest]/[method:execute_validIndexFilteredList_success()] (3 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.logic.commands.EditCommandTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.logic.commands.EditCommandTest]/[method:execute_invalidTransactionIndexUnfilteredList_failure()] (1 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.logic.LogicManagerTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.logic.LogicManagerTest]/[method:setGuiSettings_validGuiSettings_setsGuiSettings()] (3 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.logic.commands.DeleteIncomeCommandTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.logic.commands.DeleteIncomeCommandTest]/[method:execute_validIndexFilteredList_success()] (3 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.logic.commands.bookmarkcommands.EditBookmarkExpenseCommandTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.logic.commands.bookmarkcommands.EditBookmarkExpenseCommandTest]/[method:execute_invalidBookmarkExpenseIndexFilteredList_failure()] (2 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.logic.commands.EditIncomeCommandTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.logic.commands.EditIncomeCommandTest]/[method:execute_noFieldSpecifiedUnfilteredList_success()] (2 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.storage.JsonSerializableFinanceTrackerTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.storage.JsonSerializableFinanceTrackerTest]/[method:toModelType_typicalTransactionsFile_success()] (2 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.logic.commands.ClearCommandTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.logic.commands.ClearCommandTest]/[method:execute_nonEmptyFinanceTracker_invalidIntermediateCommand()] (4 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.logic.commands.FindIncomeCommandTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.logic.commands.FindIncomeCommandTest]/[method:equals()] (3 ms)</li><li>ay2021s1_cs2103_w16_3.finesse.model.ModelManagerTest.[engine:junit-jupiter]/[class:ay2021s1_cs2103_w16_3.finesse.model.ModelManagerTest]/[method:getFilteredBookmarkExpenseList_modifyList_throwsUnsupportedOperationException()] (5 ms)</li>
+</ul>
+
+<br/>
+
+Report generated by <a href='http://pitest.org'>PIT</a> 1.5.2
+
+</body>
+</html>
